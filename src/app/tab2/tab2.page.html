@@ -7,11 +7,27 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-searchbar animated="true" placeholder="¿Que deseas?"></ion-searchbar>
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Tab 2</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-card class="card"  color="primary">
+    <ion-card-header class="card__header">
+      <ion-card-title>Haz tu pedido</ion-card-title>
+      <ion-icon class="card__arrow" name="arrow-forward-circle"></ion-icon>
+    </ion-card-header>
+    <ion-img class="card__img" src="assets/pedido.png"></ion-img>
+  </ion-card>
+
+  <ion-card class="card"  color="secondary">
+    <ion-card-header class="card__header">
+      <ion-card-title>Haz un envio</ion-card-title>
+      <ion-icon class="card__arrow" name="arrow-forward-circle"></ion-icon>
+    </ion-card-header>
+    <ion-img class="card__img" src="assets/envia.png"></ion-img>
+  </ion-card>
+
 </ion-content>

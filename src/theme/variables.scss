@@ -74,9 +74,17 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /** Finder **/
+	--ion-color-finder: #9a68bb;
+	--ion-color-finder-rgb: 154,104,187;
+	--ion-color-finder-contrast: #000000;
+	--ion-color-finder-contrast-rgb: 0,0,0;
+	--ion-color-finder-shade: #885ca5;
+	--ion-color-finder-tint: #a477c2;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: ligth) {
   /*
    * Dark Colors
    * -------------------------------------------

@@ -1,0 +1,20 @@
+.card {
+    display: flex;
+    justify-content: space-evenly;
+    height: 8.5rem;
+}
+
+.card__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.card__arrow {
+    font-size: 2rem;
+}
+
+.card__img{
+    width: 42%;
+}
