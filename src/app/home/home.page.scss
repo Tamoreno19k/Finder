@@ -18,3 +18,14 @@
 .card__img{
     width: 42%;
 }
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.5rem;
+}
+
+.header__image{
+    width: 6.5rem;
+}
