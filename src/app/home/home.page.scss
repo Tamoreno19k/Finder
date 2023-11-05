@@ -28,5 +28,16 @@
 }
 
 .header__image{
-    width: 6.5rem;
+    height: 8rem;
+}
+
+.cart {
+    width: 17%;
+    height: 10%;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.cart__icon {
+    font-size: 25px;
 }
