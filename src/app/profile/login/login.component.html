@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="login-box">
+    <h1 class="login-box__titulo">Bienvenido</h1>
+    <p class="login-box__subtitulo">¡Te extrañamos!</p>
+    <!-- <form (ngSubmit)="login()" #loginForm="ngForm"> -->
+      <div class="login-box__login-info">
+        <ion-input class="login-box__user-name" type="text" placeholder="Usuario" name="email" required></ion-input>
+      </div>
+      <div class="login-box__login-info">
+        <ion-input class="login-box__password" type="password" placeholder="Contraseña" name="password" required></ion-input>
+      </div>
+      <div class="login-box__forgot-password">
+        <a class="login-box__forgot-password-enlace" href="#">¿Olvidaste tu contraseña?</a>
+      </div>
+      <ion-button expand="full" type="submit">Iniciar Sesión</ion-button>
+    <!-- </form> -->
+    <div class="methods">
+      <p class="methods__text">O Inicia Sesión con:</p>
+    </div>
+    <div class="other-methods">
+      <a href="#" class="other-methods__enlance"><ion-icon size="large" name="logo-google"></ion-icon></a>
+      <a href="#" class="other-methods__enlance"><ion-icon size="large" name="logo-apple"></ion-icon></a>
+      <a href="#" class="other-methods__enlance"><ion-icon size="large" name="logo-facebook"></ion-icon></a>
+    </div>
+    <div class="other-methods__sign-in">No estas registrado?
+      <a class="other-methods__enlace-sign-in" href="#">Empieza aqui.</a>
+    </div>
+  </div>
+</ion-content>
+
+
