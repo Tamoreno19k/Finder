@@ -1,11 +1,13 @@
 import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { homePage } from './home.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
+import { HttpClientModule } from '@angular/common/http'
 
 import { homePageRoutingModule } from './home-routing.module';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   imports: [
@@ -13,8 +15,13 @@ import { homePageRoutingModule } from './home-routing.module';
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    homePageRoutingModule
+    homePageRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  declarations: [homePage]
+  declarations: [
+    homePage,
+    SearchComponent
+  ]
 })
 export class homePageModule {}
