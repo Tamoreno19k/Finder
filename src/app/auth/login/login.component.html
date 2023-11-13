@@ -6,22 +6,44 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="field">
+
   <div class="login-box">
     <h1 class="login-box__titulo">Bienvenido</h1>
     <p class="login-box__subtitulo">¡Te extrañamos!</p>
-    <!-- <form (ngSubmit)="login()" #loginForm="ngForm"> -->
+
+    <form
+       class="form form-auth form-login"
+      [formGroup]="loginForm"
+      (ngSubmit)="login()"
+      autocomplete="off" > 
+
       <div class="login-box__login-info">
-        <ion-input class="login-box__user-name" type="text" placeholder="Usuario" name="email" required></ion-input>
+        <ion-input class="login-box__user-name" type="email" placeholder="Ingrese Su Correo Electrónico" formControlName="username"></ion-input>
+        <div
+        *ngIf="loginForm.get( 'email' )?.invalid && ( loginForm.get( 'email' )?.dirty || loginForm.get( 'email' )?.touched )"
+        class="error-message">
+        <small *ngIf="loginForm.get( 'email' )?.errors?.[ 'required' ]">
+          Email es requerido.
+        </small>
+        <small *ngIf="loginForm.get( 'email' )?.errors?.[ 'pattern' ]">
+          Por favor, introduzca un email válido.
+        </small>
       </div>
+    </div>
+
       <div class="login-box__login-info">
-        <ion-input class="login-box__password" type="password" placeholder="Contraseña" name="password" required></ion-input>
+        <ion-input class="login-box__password" type="password" placeholder="Contraseña" name="password" formControlName="password"></ion-input>
       </div>
+
       <div class="login-box__forgot-password">
         <a class="login-box__forgot-password-enlace" href="#">¿Olvidaste tu contraseña?</a>
       </div>
+
       <ion-button expand="full" type="submit">Iniciar Sesión</ion-button>
-    <!-- </form> -->
+
+    </form>
+
     <div class="methods">
       <p class="methods__text">O Inicia Sesión con:</p>
     </div>
@@ -34,6 +56,7 @@
       <a class="other-methods__enlace-sign-in" href="#">Empieza aqui.</a>
     </div>
   </div>
+
 </ion-content>
 
 
