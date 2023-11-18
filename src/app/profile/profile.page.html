@@ -1,15 +1,35 @@
-<ion-content fullscreen="true">
-    <ion-list class="ion__list">
-    <ion-item>
+<ion-content fullscreen="true" color="light">
+  
+  <ion-list class="formulary">
+
+    <ion-item class="formulary-zero">
         <ion-avatar aria-hidden="true" slot="start">
           <img alt="" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
         </ion-avatar>
-        <ion-label>Huey</ion-label>
+        <ion-label>Juan Carlos Jimenez Guerrero</ion-label>
       </ion-item>
-      <ion-item href="#"(click)="goToHistorial($event)">
-        <ion-icon aria-hidden="true" size="large" name="hourglass-outline" slot="start"></ion-icon>
-        <ion-label>Historial</ion-label>
-        <ion-icon style="color:#334ea2" name="chevron-forward-outline"></ion-icon>
-      </ion-item>  
+
+      <ion-item class="formulary-one">
+        <ion-input label="First Name"></ion-input>
+      </ion-item>
+
+      <ion-item class="formulary-two">
+        <ion-input label="Last Name"></ion-input>
+      </ion-item>
+
+      <ion-item class="formulary-tree">
+        <ion-radio-group value="custom-checked">
+          <ion-label>Allow Notifications</ion-label>
+          <ion-note color="medium">Unsubscribe at any time</ion-note>
+          <ion-radio value="custom" aria-label="Custom checkbox"></ion-radio>
+          <ion-radio value="custom-checked" aria-label="Custom checkbox that is checked"></ion-radio>
+        </ion-radio-group>
+      </ion-item>
     </ion-list>
 </ion-content>    
+
+<ion-item href="#"(click)="goToHistorial($event)">
+  <ion-icon aria-hidden="true" size="large" name="hourglass-outline" slot="start"></ion-icon>
+  <ion-label>Historial</ion-label>
+  <ion-icon style="color:#334ea2" name="chevron-forward-outline"></ion-icon>
+</ion-item>  
