@@ -1,8 +1,7 @@
 <ion-header class="header" [translucent]="true"></ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-searchbar color="ligth" animated="true" placeholder="¿Que deseas?"></ion-searchbar>
-
+  <ion-searchbar color="ligth" animated="true" placeholder="¿Que deseas?" (click)="goToSearch()"></ion-searchbar>
   <ion-card class="cart" color="tertiary">
     <ion-card-content>
       <ion-icon class="cart__icon" name="cart"></ion-icon>
