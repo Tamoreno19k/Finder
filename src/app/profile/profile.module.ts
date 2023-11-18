@@ -6,6 +6,7 @@ import { profilePage } from './profile.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { profilePageRoutingModule } from './profile-routing.module';
+import { HistorialComponent } from './historial/historial.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,9 @@ import { profilePageRoutingModule } from './profile-routing.module';
     ExploreContainerComponentModule,
     profilePageRoutingModule
   ],
-  declarations: [profilePage]
+  declarations: [
+    profilePage,
+    HistorialComponent
+  ]
 })
 export class profilePageModule {}
