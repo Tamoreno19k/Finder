@@ -1,17 +1,21 @@
-<ion-content>
-  <section class="login">
-    <p>Inicia sesion<p>
-    <div class="login__input">
-      <ion-input label="Ingresa tu Email empresarial" label-placement="floating" fill="outline" placeholder="Email"></ion-input><br>
-      <ion-input label="Ingresa la contraseña" label-placement="floating" fill="outline" placeholder="Contraseña"></ion-input>
-    </div>
-    <div class="google">
-      <p>o Inicia sesion con Google</p>
-      <div class="row">
-        <button class="btn btn-lg btn-google btn-block text-uppercase btn-outline" (click)="login()">
-            <img src="https://img.icons8.com/color/22/000000/google-logo.png"> Sing in Google
-        </button>
-    </div>
-    </div>
-  </section>
+<ion-content class="login">
+  <ion-toolbar class="ion-toolbar">
+    <ion-title class="ion-text-center">¡Inicia sesion como negocio!</ion-title>
+  </ion-toolbar>
+  <ion-item>
+    <ion-label position="floating">Correo electrónico</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input type="password"></ion-input>
+  </ion-item>
+
+  <ion-button class="btn__login" (click)="login()">Iniciar sesión</ion-button>
+  
+  <ion-button color="secondary" class="btn-google" (click)="login()">
+    <ion-img class="img-google" src="https://img.icons8.com/color/22/000000/google-logo.png"></ion-img>
+    <p class="text__btn-google">Inicia sesion</p>
+  </ion-button>
 </ion-content>

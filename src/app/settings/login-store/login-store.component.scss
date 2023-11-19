@@ -1,15 +1,24 @@
-.login {
-    padding: 6rem;
-    // background-color: gray;
+.ion-toolbar {
+    padding: 4rem 0 0 0;
 }
 
-.row {
-    margin: 1%;
+.btn-google {
+    height: 35px;
+    width: 48%;
+
 }
 
-
-.btn-google:hover {
-    background-color: #C23B33;
-    border-color: #C23B33;
-    color: #ffffff;
+.img-google {
+    width: 25px;
+    min-width: 25px;
 }
+
+.text__btn-google {
+    padding: 0 0 0 10px;
+}
+
+.btn__login {
+    width: 48%;
+}
+
+  
