@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { CmsComponent } from './cms.component';
+import { CmsComponent } from './cms.page';
 
 describe('CmsComponent', () => {
   let component: CmsComponent;

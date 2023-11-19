@@ -8,15 +8,33 @@ export class AuthGoogleService {
 
   constructor(
     private oAuthService: OAuthService
-  ) { }
+  ) { 
+    this.initLogin()
+  }
 
   initLogin() {
     const config: AuthConfig = {
       issuer: 'https://accounts.google.com',
       strictDiscoveryDocumentValidation: false,
-      clientId: '',
-      redirectUri: window.location.origin + '/'
+      clientId: '490760304600-kuebc8f5fq3dupm8cmf3jp2t3fo1jc57.apps.googleusercontent.com',
+      redirectUri: window.location.origin + '/cms/cms-home',
+      scope: 'openid profile email',
     }
+
+    this.oAuthService.configure(config)
+    this.oAuthService.setupAutomaticSilentRefresh()
+    this.oAuthService.loadDiscoveryDocumentAndTryLogin()
   }
 
+  loginGoogle() {
+    this.oAuthService.initLoginFlow()
+  }
+
+  logOutGoogle(){
+    this.oAuthService.logOut()
+  }
+
+  getGoogleProfile() {
+    return this.oAuthService.getIdentityClaims()
+  }
 }

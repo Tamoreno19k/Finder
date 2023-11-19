@@ -2,10 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CmsRoutingModule } from './cms-routing.module';
+import { CmsComponent } from './cms.page';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    CmsComponent
+  ],
   imports: [
     CommonModule,
     CmsRoutingModule
