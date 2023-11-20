@@ -2,15 +2,22 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CmsComponent } from './cms.page';
 import { LoginComponent } from '../auth/login/login.component';
+import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: LoginComponent
+    path: 'cms-home',
+    component: CmsComponent,
+    children: [
+      {
+        path: 'products',
+        component: ProductsComponent
+      },
+    ]
   },
   {
-    path: 'cms-home',
-    component: CmsComponent
+    path: '',
+    component: LoginComponent 
   }
 ];
 
