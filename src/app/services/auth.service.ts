@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -11,8 +11,8 @@ import { catchError, map, of, tap } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-
   BASE_URL: String = environment.baseUrl;
+  private authData!: User
 
   constructor(
     private http: HttpClient,
@@ -43,4 +43,28 @@ export class AuthService {
         })
       );
   }
+
+verifyToken(){
+
+  const token = localStorage.getItem('token') || '';
+  const URL = `${this.BASE_URL}/auth/renew-token`;
+  const headers = new HttpHeaders().set('X-Token', token);
+
+  return this.http.get<ResponseAuth>(URL, {headers})
+  .pipe(
+    tap(data => {
+      if ( data.token){
+        this.authData = data.userData!
+        localStorage.setItem('token', data.token);
+      }
+      else{
+        localStorage.removeItem('token');
+      }
+    }),
+    map (data => data.ok),
+    catchError(error =>{
+      return of (false);
+    } )
+  );
+}
 }

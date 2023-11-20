@@ -1,0 +1,101 @@
+html {
+    height: 100%;
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .title {
+        display: flex;
+    }
+
+    .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } 
+    .card-content-md {
+        padding-top: 0;
+        padding-bottom: 3px;
+    }
+    .boton{
+        padding: 10px 20px;
+        font-size: 17px;
+        margin-top: 1rem;
+        margin-left: 21%;
+        border-style: none;
+        border-radius: 12px;
+        font-family: 'Red Hat Display', sans-serif;
+        transition: all 0.7s ease-in-out;
+      }
+    .boton__text-enlance{
+        text-decoration: none;
+    }  
+    .methods {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+        font-family: 'Red Hat Display', sans-serif;
+    }
+    .other-methods {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-top: 2rem;
+    }
+    .other-methods__sign-in{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 2.5rem 0 0 0;
+        font-size: 15.7px;
+        font-family: 'Red Hat Display', sans-serif;
+    }
+    .other-methods__enlace-sign-in{
+        text-decoration: none;
+    }
+      .register-box__titulo {
+          margin: 0 0 10px 0;
+          padding: 0;
+          text-align: center;
+          font-size: 31px;
+          font-family: 'Red Hat Display', sans-serif;  
+        }
+      .register-box__subtitulo {
+          margin: 0 0 35px 0;
+          padding: 0;
+          text-align: center;
+          font-family: 'Red Hat Display', sans-serif;  
+        }
+      .register-box__form {
+          padding: 10px 20px 0 0;
+          font-size: 16px;
+      }
+    //   .register-box__register-info{
+    //       /* position: relative; */
+    //   }
+      .register-box__user-info {
+        font-family: 'Red Hat Display', sans-serif;
+        width: 100%;
+        padding: 10px 0;
+        font-size: 16px;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 1px solid #e3e3fb;
+        outline: none;
+        background: transparent;
+      }
+      .boton-register {
+        display: flex;
+        justify-content: center;
+        margin-right: 3px;
+    }
+      .boton__register-cancel-enlace {
+          margin-top: .2rem;
+          display: flex;
+          justify-content: center;
+          text-decoration: none;
+          font-size: 1rem;
+          font-family: 'Red Hat Display', sans-serif;
+      }

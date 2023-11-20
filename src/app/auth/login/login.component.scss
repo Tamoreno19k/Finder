@@ -1,0 +1,135 @@
+html {
+    height: 100%;
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #FFF9F7;
+    }
+    .title {
+        display: flex;
+        margin-top: 1rem;
+    }    
+    .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } 
+    
+    .login-box {
+      margin: 1rem;
+
+    }
+    .login-box__titulo {
+        font-family: 'Red Hat Display', sans-serif;
+        margin: 20px 0 10px 0;
+        padding: 0;
+        text-align: center;
+        font-size: 31px;
+    }
+    .login-box__subtitulo {
+        font-family: 'Red Hat Display', sans-serif;
+        margin: 0 0 35px 0;
+        padding: 0;
+        text-align: center;
+    }
+    .login-box__form {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin-top: 40px;
+    }
+    // .login-box__login-info{
+    //     /* position: relative; */
+    // }
+    .login-box__user-name {
+        font-family: 'Red Hat Display', sans-serif;
+        width: 100%;
+        padding: 10px 0;
+        font-size: 16px;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 1px solid #e3e3fb;
+        outline: none;
+        background: transparent;
+    }
+    .login-box__password {
+        font-family: 'Red Hat Display', sans-serif;
+        width: 100%;
+        padding: 10px 0;
+        font-size: 16px;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 1px solid #e3e3fb;
+        outline: none;
+        background: transparent;
+    }
+    .login-box__forgot-password {
+        display: flex;
+        justify-content: end;
+        font-style: italic;
+        font-family: 'Red Hat Display', sans-serif;
+    }
+    .login-box__forgot-password-enlace {
+        text-decoration: none;
+        font-size: .8rem;
+    }
+    .boton-login{
+        padding: 10px 20px;
+        font-size: 17px;
+        margin-top: 1rem;
+        margin-left: 30%;
+        border-style: none;
+        border-radius: 12px;
+        font-family: 'Red Hat Display', sans-serif;
+        cursor: pointer;
+        transition: all 0.7s ease-in-out;
+      }
+    .boton{
+        color: white;
+        padding: 10px 20px;
+        font-size: 17px;
+        margin-top: 1rem;
+        margin-left: 10%;
+        margin-right: 10%;
+        border-style: none;
+        border-radius: 12px;
+        font-family: 'Red Hat Display', sans-serif;
+        transition: all 0.7s ease-in-out;
+      }
+    .boton__text-enlance{
+        text-decoration: none;
+    }  
+    .methods {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+        font-family: 'Red Hat Display', sans-serif;
+    }
+    .other-methods {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .other-methods__google {
+     height: 2rem;
+    }
+    .other-methods__apple {
+        width: 2rem;
+        padding-left: 2rem;
+    }
+    img.other-methods__fb {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    .other-methods__sign-in{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 4rem 0 0 0;
+        font-size: small;
+        font-family: 'Red Hat Display', sans-serif;
+    }
+    .other-methods__enlace-sign-in{
+        text-decoration: none;
+    }

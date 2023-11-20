@@ -9,8 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent{
-
-  message!: String;
+ message!: String;
  classMessage!: String;
 
  loginForm: FormGroup = this.formBuilder.group({
@@ -24,7 +23,7 @@ export class LoginComponent{
 
   login() {
 
-  this.authSevice.login(this.loginForm.value).subscribe((data: boolean) => { // this error will be resolved as soon as I am done with the auth service
+  this.authSevice.login(this.loginForm.value).subscribe((data: boolean) => {
     console.log(data);
 
     if( ! data){
