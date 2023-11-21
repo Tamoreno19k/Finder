@@ -25,7 +25,9 @@
             class="register-box__user-info" 
             type="text" 
             formControlName="name"
-            placeholder="Nombres" />
+            placeholder="Nombres"
+            minlenght="3"
+            />
 
           <div 
             *ngIf="registerForm.get( 'name' )?.invalid && registerForm.get( 'name' )?.dirty && registerForm.get( 'name' )?.touched" 
@@ -42,7 +44,9 @@
             class="register-box__user-info" 
             type="text" 
             formControlName="lastName"
-            placeholder="Apellido" />
+            placeholder="Apellido"
+            minlenght="3" 
+            />
           <div 
             *ngIf="registerForm.get( 'lastName' )?.invalid && registerForm.get( 'lastName' )?.dirty && registerForm.get( 'lastName' )?.touched" 
             class="error-message" >
@@ -74,7 +78,10 @@
             class="register-box__user-info" 
             type="password"
             formControlName="password" 
-            placeholder="Contraseña" />
+            placeholder="Contraseña"
+            minlenght="6"
+            maxlenght="15"
+            />
 
           <div *ngIf="registerForm.get( 'password' )?.invalid && registerForm.get( 'password' )?.dirty && registerForm.get( 'password' )?.touched" class="error-message">
             <small *ngIf="registerForm.get( 'password' )?.errors?.[ 'required' ]">
