@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthGoogleService } from 'src/app/services/auth-google.service';
 
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -18,10 +19,13 @@ export class LoginComponent{
 });
   constructor(
     private formBuilder: FormBuilder,
-    private authSevice: AuthService
+    private authSevice: AuthService,
+    private authGoogleService: AuthGoogleService
   ) {}
 
   login() {
+
+  this.authGoogleService.loginGoogle();
 
   this.authSevice.login(this.loginForm.value).subscribe((data: boolean) => {
     console.log(data);
