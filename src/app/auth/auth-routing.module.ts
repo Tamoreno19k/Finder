@@ -10,7 +10,10 @@ const routes: Routes = [
     path: '',
     component: AuthPage,
     children: [
-
+      {
+        path: '',
+        redirectTo: 'login'
+      },
       {
         path: 'login',
         component: LoginComponent
@@ -19,10 +22,6 @@ const routes: Routes = [
         path: 'register',
         component: RegisterComponent
       },
-      {
-        path: '**',
-        redirectTo: 'login'
-      }
     ]
   }
 ];
