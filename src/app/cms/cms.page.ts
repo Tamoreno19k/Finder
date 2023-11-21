@@ -23,7 +23,7 @@ export class CmsComponent  implements OnInit {
 
   logOut() {
     this.authGoogleService.logOutGoogle()
-    this.router.navigate(['tabs/tab3/store-login'])
+    this.router.navigate(['page/tabs/tab3/store-login'])
   }
 
 }
