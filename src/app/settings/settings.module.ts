@@ -6,6 +6,7 @@ import { settingsPage } from './settings.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { settingsPageRoutingModule } from './settings-routing.module';
+import { LoginStoreComponent } from './login-store/login-store.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,9 @@ import { settingsPageRoutingModule } from './settings-routing.module';
     ExploreContainerComponentModule,
     settingsPageRoutingModule
   ],
-  declarations: [settingsPage]
+  declarations: [
+    settingsPage,
+    LoginStoreComponent
+  ]
 })
 export class settingsPageModule {}

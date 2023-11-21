@@ -13,8 +13,12 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: 'auth'
-  }
+  },
+  {
+    path: 'cms',
+    loadChildren: () => import('./cms/cms.module').then(m => m.CmsModule)
 
+  }
 ];
 @NgModule({
   imports: [
