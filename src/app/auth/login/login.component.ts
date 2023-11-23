@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-// import { AuthGoogleService } from 'src/app/services/auth-google.service';
+import { Route, Router } from '@angular/router';
+import { AuthGoogleService } from 'src/app/services/auth-google-customers.service';
 
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -20,12 +21,11 @@ export class LoginComponent{
   constructor(
     private formBuilder: FormBuilder,
     private authSevice: AuthService,
-    // private authGoogleService: AuthGoogleService
+    private authGoogleService: AuthGoogleService,
+    private router: Router
   ) {}
 
   login() {
-
-  // this.authGoogleService.loginGoogle();
 
   this.authSevice.login(this.loginForm.value).subscribe((data: boolean) => {
     console.log(data);
@@ -41,5 +41,9 @@ export class LoginComponent{
     }, 2000);
 
     });
+  }
+
+  loginWithGoogle(){
+    this.authGoogleService.loginGoogle();
   }
 }
