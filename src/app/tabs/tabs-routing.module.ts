@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
+import { verificationAuthGuard } from '../guards/auth-guard.guard';
 
 const routes: Routes = [
   {
@@ -24,7 +25,9 @@ const routes: Routes = [
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'
       }
-    ]
+    ],
+    canActivate: [verificationAuthGuard]
+
   },
   {
     path: '',
