@@ -5,7 +5,7 @@ import { HistorialComponent } from './historial/historial.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':id',
     component: profilePage,
   },
   {
