@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthGoogleService } from 'src/app/services/auth-google-customers.service';
+import { AuthGoogleServiceCustomers } from 'src/app/services/auth-google-customers.service';
 
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -21,12 +21,15 @@ export class LoginComponent{
   constructor(
     private formBuilder: FormBuilder,
     private authSevice: AuthService,
-    private authGoogleService: AuthGoogleService,
+    private authGoogleServiceCustomers: AuthGoogleServiceCustomers,
     private router: Router
   ) {}
 
   loginWithGoogle(){
-    this.authGoogleService.loginGoogle();
+    this.authGoogleServiceCustomers.loginGoogle();
+    // const data = JSON.stringify(this.authGoogleServiceCustomers.getGoogleProfile())
+    // console.log(data) //check this one
+    this.router.navigate(['pages', 'tabs', 'tabs2'])
 
   }  // despues del sing in with google o el sign in normal, no esta enviando a los usuarios a pages/tab/tab2, hay algo mal en esta parte o al momento de recibir el token de google no lo esta cogiendo el canactivate
 

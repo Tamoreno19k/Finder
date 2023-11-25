@@ -10,15 +10,15 @@ const routes: Routes = [
     children: [
       {
         path: 'tab1',
-        loadChildren: () => import('../profile/profile.module').then(m => m.profilePageModule)
+        loadChildren: () => import('../profile/profile.module').then(m => m.profilePageModule),  // aqui va el can activate canActivate: [verificationAuthGuard]
       },
       {
         path: 'tab2',
-        loadChildren: () => import('../home/home.module').then(m => m.homePageModule)
+        loadChildren: () => import('../home/home.module').then(m => m.homePageModule),  // aqui va el can activate canActivate: [verificationAuthGuard]
       },
       {
         path: 'tab3',
-        loadChildren: () => import('../settings/settings.module').then(m => m.settingsPageModule)
+        loadChildren: () => import('../settings/settings.module').then(m => m.settingsPageModule),  // aqui va el can activate canActivate: [verificationAuthGuard]
       },
       {
         path: '',
@@ -26,7 +26,6 @@ const routes: Routes = [
         pathMatch: 'full'
       }
     ],
-    canActivate: [verificationAuthGuard]
 
   },
   {

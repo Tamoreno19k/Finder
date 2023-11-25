@@ -34,8 +34,7 @@ export class AuthService {
         tap( ( response: ResponseAuth ) => {
           localStorage.setItem( 'token', response.token! );
           
-          // this.router.navigateByUrl( '/dashboard' ); I have to create a dashboard as well
-          this.router.navigate( [ 'page/tabs/tab2' ] );
+          this.router.navigateByUrl( '/page/tabs/tab2' );
 
         }),
         map( ( response: ResponseAuth ) => response.ok ),

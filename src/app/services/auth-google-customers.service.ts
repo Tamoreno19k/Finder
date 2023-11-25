@@ -4,7 +4,7 @@ import { OAuthService, AuthConfig } from 'angular-oauth2-oidc'
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGoogleService {
+export class AuthGoogleServiceCustomers {
 
   constructor(
     private oAuthService: OAuthService
@@ -34,9 +34,8 @@ export class AuthGoogleService {
     this.oAuthService.logOut()
   }
 
-  getGoogleProfile(GoogleProfileData: {}) {
-   GoogleProfileData =( this.oAuthService.getIdentityClaims())
-   console.log(GoogleProfileData);
-   
+  getGoogleProfile() {
+   this.oAuthService.getIdentityClaims()
+  
   } 
 }
