@@ -7,7 +7,12 @@
 </ion-header>
 
 <ion-content class="main" [fullscreen]="true">
-
+  <form
+  [formGroup]="registerForm"
+  (ngSubmit)="onSubmit()"
+  class="form form-auth form-login"
+  autocomplete="off"
+  >
     <ion-card class="register-box">
       <ion-card-header>
         <ion-card-title class="register-box__titulo">Registro</ion-card-title>
@@ -15,39 +20,133 @@
       </ion-card-header>
       <ion-card-content>
         <ion-list class="register-box__form">
-          <ion-item class="register-box__register-info">
-            <ion-input class="register-box__user-info" type="text" placeholder="Nombres" ></ion-input>
-            <ion-input class="register-box__user-info" type="text" placeholder="Apellidos" ></ion-input>
-            <ion-input class="register-box__user-info" type="text" placeholder="Usuario" ></ion-input>
-            <ion-input class="register-box__user-info" type="password" placeholder="Contraseña" ></ion-input>
-            <ion-input class="register-box__user-info" type="password" placeholder="Repetir Contraseña" ></ion-input>
-            <ion-input class="register-box__user-info" type="email" placeholder="Correo" ></ion-input>
-            <ion-input class="register-box__user-info" type="tel" placeholder="Celular" ></ion-input>
-          </ion-item>
+   
+          <ion-input 
+            class="register-box__user-info" 
+            type="text" 
+            formControlName="name"
+            placeholder="Nombres"
+            minlenght="3"
+            />
+
+          <div 
+            *ngIf="registerForm.get( 'name' )?.invalid && registerForm.get( 'name' )?.dirty && registerForm.get( 'name' )?.touched" 
+            class="error-message" >
+            <small *ngIf="registerForm.get( 'name' )?.errors?.[ 'required' ]" >
+              <strong>Su Nombre es requerido.</strong>
+            </small>
+            <small *ngIf="registerForm.get( 'name' )?.errors?.[ 'minLength' ]" >
+              <strong>Este campo debe tener al menos 3 caracteres.</strong>
+            </small>
+          </div>
+
+          <ion-input 
+            class="register-box__user-info" 
+            type="text" 
+            formControlName="lastName"
+            placeholder="Apellido"
+            minlenght="3" 
+            />
+          <div 
+            *ngIf="registerForm.get( 'lastName' )?.invalid && registerForm.get( 'lastName' )?.dirty && registerForm.get( 'lastName' )?.touched" 
+            class="error-message" >
+            <small *ngIf="registerForm.get( 'lastName' )?.errors?.[ 'required' ]" >
+              <strong>Su Apellido es requerido.</strong>
+            </small>
+            <small *ngIf="registerForm.get( 'lastName' )?.errors?.[ 'minLength' ]" >
+            <strong>Este campo debe tener al menos 3 caracteres.</strong>
+            </small>
+          </div>  
+  
+          <ion-input 
+            class="register-box__user-info" 
+            type="text"
+            formControlName="username" 
+            placeholder="Usuario" />
+            <div 
+            *ngIf="registerForm.get( 'username' )?.invalid && registerForm.get( 'username' )?.dirty && registerForm.get( 'username' )?.touched" 
+            class="error-message" >
+            <small *ngIf="registerForm.get( 'username' )?.errors?.[ 'required' ]">
+            <strong>El usuario es requerido.</strong>
+            </small>
+            <small *ngIf="registerForm.get( 'username' )?.errors?.[ 'email' ]">
+            <strong>El usuario debe ser un correo electrónico.</strong>
+            </small>
+          </div>
+
+          <ion-input 
+            class="register-box__user-info" 
+            type="password"
+            formControlName="password" 
+            placeholder="Contraseña"
+            minlenght="6"
+            maxlenght="15"
+            />
+
+          <div *ngIf="registerForm.get( 'password' )?.invalid && registerForm.get( 'password' )?.dirty && registerForm.get( 'password' )?.touched" class="error-message">
+            <small *ngIf="registerForm.get( 'password' )?.errors?.[ 'required' ]">
+            <strong>La contraseña requerida.</strong>
+            </small>
+            <small *ngIf="registerForm.get( 'password' )?.errors?.[ 'minLength' ]">
+            <strong>La contraseña debe tener mínimo 6 caracteres.</strong>
+            </small>
+            <small *ngIf="registerForm.get( 'password' )?.errors?.[ 'maxLength' ]">
+            <strong>La contraseña debe tener máximo 12 caracteres.</strong>
+            </small>
+          </div> 
+        
+          <!-- <ion-input 
+            class="register-box__user-info" 
+            type="password"
+            formControlName="repeatPassword" 
+            placeholder="Repetir Contraseña" />  -->
+            <!--  Para este me toca mirar como funciona la parte del small  -->
+          
+          <ion-input 
+            class="register-box__user-info" 
+            type="tel"
+            formControlName="phone"
+            placeholder="Celular" />
+
+            <!--  Para este me toca mirar como funciona la parte del small  x2 -->
+          
         </ion-list>
-        <ion-button class="boton-register" type="reset">Registrarse</ion-button>
-        <!-- You may need to modify this part according to your requirements -->
-        <!-- <ion-label class="boton__text-span"><ion-anchor class="boton__text-enlance boton:hover" href="#"></ion-anchor></ion-label> -->
-      </ion-card-content>
-      <ion-text class="boton__register-cancel">
-        <!-- <ion-anchor class="boton__register-cancel-enlace" href="#">Cancelar</ion-anchor> -->
-      </ion-text>
-      <ion-text class="methods"> O Registrate con: </ion-text>
-      <ion-list class="other-methods">
-        <ion-item class="other-methods__enlance">
-        <ion-icon size="large" name="logo-google"></ion-icon>
-        </ion-item>
-        <ion-item class="other-methods__enlance">
-        <ion-icon size="large" name="logo-apple"></ion-icon>
-        </ion-item>
-        <ion-item class="other-methods__enlance">
-          <ion-icon size="large" name="logo-facebook"></ion-icon>
-        </ion-item>
-      </ion-list>
+
+      <div class="field">
+        <div [class]="classMessage">
+          {{ message }}
+        </div>
+      </div>
+
+        <ion-button 
+          class="boton-register" 
+          type="submit"
+          [disabled]="registerForm.invalid">
+          Registrarse
+        </ion-button>
+
+<div class="methods">
+    </div>
+    <button (click)="loginWithGoogle()" class="gsi-material-button">
+
+      <div class="gsi-material-button-state"></div>
+      <div class="gsi-material-button-content-wrapper">
+        <div class="gsi-material-button-icon">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: block;">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
+            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+            <path fill="none" d="M0 0h48v48H0z"></path>
+          </svg>
+        </div>
+        <span class="gsi-material-button-contents">Registrate con Google</span>
+        <span style="display: none;">Registrate con Google</span>
+      </div>
+    </button>
       <ion-text class="other-methods__sign-in">
         Ya estás registrado?
-        <!-- <ion-anchor class="other-methods__enlace-sign-in" href="./login-page.html">Inicia sesión aquí.</ion-anchor> -->
+        <p ><a class="other-methods__enlace-sign-in" routerLink="/auth/login">&nbsp;Inicia sesión aquí</a></p>
+
       </ion-text>
-    </ion-card>
-  </ion-content>
   

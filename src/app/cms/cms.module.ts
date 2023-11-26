@@ -6,6 +6,7 @@ import { CmsComponent } from './cms.page';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { ProductsComponent } from './products/products.component';
+import { AuthPageRoutingModule } from '../auth/auth-routing.module';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { ProductsComponent } from './products/products.component';
     IonicModule,
     CommonModule,
     FormsModule,
+    AuthPageRoutingModule
   ]
 })
 export class CmsModule { }

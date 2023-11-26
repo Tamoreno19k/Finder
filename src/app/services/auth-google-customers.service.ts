@@ -4,7 +4,7 @@ import { OAuthService, AuthConfig } from 'angular-oauth2-oidc'
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGoogleService {
+export class AuthGoogleServiceCustomers {
 
   constructor(
     private oAuthService: OAuthService
@@ -16,8 +16,8 @@ export class AuthGoogleService {
     const config: AuthConfig = {
       issuer: 'https://accounts.google.com',
       strictDiscoveryDocumentValidation: false,
-      clientId: '490760304600-kuebc8f5fq3dupm8cmf3jp2t3fo1jc57.apps.googleusercontent.com',
-      redirectUri: window.location.origin + '/cms/cms-home', // aca como se redirige a el main page de usuario registrado vs tienda?
+      clientId: '952609926775-26ihebgrcblrtp8mfbs4n6vonulv0pc5.apps.googleusercontent.com',
+      redirectUri: window.location.origin + '/page/tabs/tab2', // aca como se redirige a el main page de usuario registrado vs tienda?
       scope: 'openid profile email',
     }
 
@@ -35,6 +35,7 @@ export class AuthGoogleService {
   }
 
   getGoogleProfile() {
-    return this.oAuthService.getIdentityClaims()
-  }
+   this.oAuthService.getIdentityClaims()
+  
+  } 
 }

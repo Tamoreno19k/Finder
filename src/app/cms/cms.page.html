@@ -5,7 +5,7 @@
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
-    <ion-item href="#" (click)="goToProducts($event)">
+    <ion-item href="#" routerLink="/cms/cms-home/products">
       <ion-icon aria-hidden="true" size="default" name="pricetags" slot="start"></ion-icon>
       <ion-label>Productos</ion-label>
       <ion-icon style="color:#334ea2" name="chevron-forward-outline"></ion-icon>
@@ -34,5 +34,9 @@
       <ion-title>Finder</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding"> Tap the button in the toolbar to open the menu. </ion-content>
+  <ion-content class="ion-padding"> 
+  
+    <ion-router-outlet></ion-router-outlet>
+  
+  </ion-content>
 <button type="button" (click)="showData()">data</button>
