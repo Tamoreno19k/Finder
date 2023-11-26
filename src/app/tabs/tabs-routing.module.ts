@@ -19,6 +19,7 @@ const routes: Routes = [
         path: 'tab3',
         loadChildren: () => import('../settings/settings.module').then(m => m.settingsPageModule)
       },
+      
       {
         path: '',
         redirectTo: '/tabs/tab1',

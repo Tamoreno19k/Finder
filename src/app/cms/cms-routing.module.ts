@@ -4,6 +4,21 @@ import { CmsComponent } from './cms.page';
 import { LoginComponent } from '../auth/login/login.component';
 import { ProductsComponent } from './products/products.component';
 
+// const routes: Routes = [
+//   {
+//     path: '',
+//     component: LoginComponent,
+//   },
+//   {
+//     path: 'cms-home',
+//     component: CmsComponent 
+//   },
+//   {
+//     path: 'products',
+//     component: ProductsComponent 
+//   },
+// ];
+
 const routes: Routes = [
   {
     path: 'cms-home',
@@ -12,14 +27,10 @@ const routes: Routes = [
       {
         path: 'products',
         component: ProductsComponent
-      },
+      }
     ]
-  },
-  {
-    path: '',
-    component: LoginComponent 
   }
-];
+]
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
