@@ -35,7 +35,7 @@ export class AuthGoogleServiceCustomers {
   }
 
   getGoogleProfile() {
-   this.oAuthService.getIdentityClaims()
+   return this.oAuthService.getIdentityClaims()
   
   } 
 }

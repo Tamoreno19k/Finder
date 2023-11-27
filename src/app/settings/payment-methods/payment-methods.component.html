@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Payment Methods
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <h1 class="paymentsTitle" >
+    Métodos De Pago
+  </h1>
+
+  <ion-card class="creditCard">
+    <img class="creditCard-image" alt="Tarjeta Visa" src="https://opcionis.com/blog/wp-content/uploads/2014/02/tarjeta-de-credito-o-tarjeta-de-debito-principales-caracteristicas-tarjetas-credito.jpg"/>
+    <ion-card-header class="creditCard-box" >
+      <ion-card-title class="creditCard-title" >Visa Gold</ion-card-title>
+      <ion-card-subtitle class="creditCard-subtitle" >**** **** 9010</ion-card-subtitle>
+    </ion-card-header>
+    <ion-button fill="clear">Editar</ion-button>
+    <ion-button color="danger" fill="clear">Eliminar</ion-button>
+  </ion-card>
+
+  <ion-card class="creditCard" >
+    <img class="creditCard-image" alt="Tarjeta Maestro" src="https://www.paymentmedia.com/gallery/54dd0a89ae7b1bancolombia_maestro_sitp_623.jpg"/>
+    <ion-card-header class="creditCard-box"  >
+      <ion-card-title class="creditCard-title" >Bancolombia Maestro</ion-card-title>
+      <ion-card-subtitle class="creditCard-subtitle" >**** **** 0001</ion-card-subtitle>
+    </ion-card-header>
+    <ion-button fill="clear">Editar</ion-button>
+    <ion-button color="danger" fill="clear">Eliminar</ion-button>
+  </ion-card>
+  
+  <ion-card class="creditCard" color="light" >
+    <img class="creditCard-image" alt="Tarjeta Visa" src="https://i.pinimg.com/564x/72/62/42/7262422311bd52d7d2d6fe0367a6c259.jpg"/>
+    <ion-card-header class="creditCard-box">
+      <ion-card-title class="creditCard-title" >Agregar Tarjeta</ion-card-title>
+      <ion-card-subtitle class="creditCard-subtitle" >Nueva Tarjeta</ion-card-subtitle>
+    </ion-card-header>
+    <a class="creditCard-addButtonLink" href="http://localhost:8100/page/tabs/tab3/payment-methods"><ion-icon class="creditCard-addButton" name="add-circle-outline"></ion-icon></a>
+  </ion-card>

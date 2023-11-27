@@ -7,6 +7,11 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 
 import { settingsPageRoutingModule } from './settings-routing.module';
 import { LoginStoreComponent } from './login-store/login-store.component';
+import { SecurityComponent } from './security/security.component';
+import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
+import { PrivacyComponent } from './privacy/privacy.component';
+import { HelpSupportComponent } from './help-support/help-support.component';
+import { AboutFinderComponent } from './about-finder/about-finder.component';
 
 @NgModule({
   imports: [
@@ -18,7 +23,12 @@ import { LoginStoreComponent } from './login-store/login-store.component';
   ],
   declarations: [
     settingsPage,
-    LoginStoreComponent
+    LoginStoreComponent,
+    SecurityComponent,
+    PaymentMethodsComponent,
+    PrivacyComponent,
+    HelpSupportComponent,
+    AboutFinderComponent
   ]
 })
 export class settingsPageModule {}
