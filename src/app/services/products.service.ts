@@ -28,4 +28,9 @@ export class ProductsService {
     data, 
     {headers: this.headers})   
   }
+
+  deleteProductById(id: string) {
+    return this.http.delete(`${this.BASE_URL}/products/${id}`,
+    {headers: this.headers})
+  }
 }

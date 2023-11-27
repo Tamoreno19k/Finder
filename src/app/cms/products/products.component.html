@@ -3,7 +3,12 @@
     <ion-grid [fixed]="true">
         <ion-row>
           <ion-col class="plus-container">
-            <ion-icon class="plus" name="duplicate-outline"></ion-icon>
+            <ion-icon class="plus" name="duplicate-outline" (click)="presentAlert()"></ion-icon>
+          <form
+            [formGroup]="productsForm"
+            autocomplete="off"
+          >
+          </form>
           </ion-col>
           <ion-col *ngFor="let product of products" size="6">
             <ion-card>
@@ -14,7 +19,7 @@
                 </ion-card-header>
               
                   <ion-card-content class="cards-buttons">
-                    <ion-button class="btn" color="danger">Eliminar</ion-button>
+                    <ion-button class="btn" color="danger" (click)="deleteProductConfirm(product._id)" >Eliminar</ion-button>
                     <ion-button class="btn" color="success">Actualizar</ion-button>
                   </ion-card-content>
               </ion-card>
