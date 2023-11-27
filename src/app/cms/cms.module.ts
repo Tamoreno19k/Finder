@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CmsRoutingModule } from './cms-routing.module';
 import { CmsComponent } from './cms.page';
 import { IonicModule } from '@ionic/angular';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsComponent } from './products/products.component';
 import { AuthPageRoutingModule } from '../auth/auth-routing.module';
 
@@ -12,7 +12,7 @@ import { AuthPageRoutingModule } from '../auth/auth-routing.module';
 @NgModule({
   declarations: [
     CmsComponent,
-    ProductsComponent,
+    ProductsComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +20,8 @@ import { AuthPageRoutingModule } from '../auth/auth-routing.module';
     IonicModule,
     CommonModule,
     FormsModule,
-    AuthPageRoutingModule
+    AuthPageRoutingModule,
+    ReactiveFormsModule,
   ]
 })
 export class CmsModule { }

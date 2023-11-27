@@ -16,7 +16,7 @@ const routes: Routes = [
     ],
     canActivate: [verificationAuthGuard]
   },
-];
+]
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
