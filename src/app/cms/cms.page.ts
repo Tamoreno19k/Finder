@@ -26,4 +26,9 @@ export class CmsComponent  implements OnInit {
     this.router.navigate(['page/tabs/tab3/store-login'])
   }
 
+  goToProducts(event: Event): void {
+    event.preventDefault()
+    this.router.navigate(['cms/cms-home/products'])
+  }
+
 }

@@ -1,0 +1,26 @@
+.cards-buttons {
+    display: flex;
+    padding: 0 8px 4px 8px;
+}
+
+.btn {
+    width: 50%;
+    font-size: 10px;
+}
+
+.grid-image {
+    height: 9rem;
+    width: 100%;
+}
+
+.plus-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.plus {
+    font-size: 4rem;
+    cursor: pointer;
+    color: #5564eb;
+}

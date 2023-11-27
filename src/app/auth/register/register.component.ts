@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthGoogleServiceCustomers } from 'src/app/services/auth-google-customers.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 
@@ -25,8 +26,14 @@ export class RegisterComponent {
   constructor( 
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private authGoogleServiceCustomers: AuthGoogleServiceCustomers,
+
   ) {}
+
+  loginWithGoogle(){
+    this.authGoogleServiceCustomers.loginGoogle();
+  }
 
   onSubmit() {
     console.log( this.registerForm.value ); 
@@ -47,6 +54,6 @@ export class RegisterComponent {
     });
 
     this.registerForm.reset();
-    this.router.navigate(['login'])
+    this.router.navigateByUrl('/auth/login')
   }
 }

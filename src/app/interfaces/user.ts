@@ -4,7 +4,7 @@ export interface User {
     lastName?: string;
     username: string;
     email?: string;           // ? Opcional
-    phone?: Number;
+    phone?: number;
     role?: string;
 
 }
