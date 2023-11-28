@@ -132,7 +132,7 @@ async presentAlert() {
 
   deleteProduct(id: string) {
     this.productServices.deleteProductById(id).subscribe(() => {
+      this.loadProducts()
     })
-    this.loadProducts()
   }
 }
