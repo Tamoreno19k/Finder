@@ -1,0 +1,19 @@
+.paymentsTitle {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: x-large;
+    color: #334ea2;
+}
+.creditCard-box{
+    padding-bottom: 0;
+}
+.creditCard-addButton{
+// margin-bottom: 0.5rem;
+width: 20%;
+font-size: 3.5rem
+}
+.creditCard-addButtonLink{
+    text-decoration: none;
+    color: inherit;
+}
