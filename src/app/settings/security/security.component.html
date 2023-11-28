@@ -7,6 +7,21 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content color="light">
+  <ion-list [inset]="true">
 
+<ion-button id="present-alert"  expand="block" fill="outline">Cierre de Sesión Global</ion-button>
+<ion-alert
+  trigger="present-alert"
+  header="¿Estás seguro que quieres cerrar sesión en todos tus dispositivos?"
+  [buttons]="alertButtons"
+  (didDismiss)="setResult($event)"
+></ion-alert>
+
+<!-- No se que mas poner aca -->
+
+
+
+
+ 
 

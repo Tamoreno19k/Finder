@@ -9,7 +9,7 @@ import { settingsPageRoutingModule } from './settings-routing.module';
 import { LoginStoreComponent } from './login-store/login-store.component';
 import { SecurityComponent } from './security/security.component';
 import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
-import { PrivacyComponent } from './privacy/privacy.component';
+
 import { HelpSupportComponent } from './help-support/help-support.component';
 import { AboutFinderComponent } from './about-finder/about-finder.component';
 
@@ -26,7 +26,6 @@ import { AboutFinderComponent } from './about-finder/about-finder.component';
     LoginStoreComponent,
     SecurityComponent,
     PaymentMethodsComponent,
-    PrivacyComponent,
     HelpSupportComponent,
     AboutFinderComponent
   ]

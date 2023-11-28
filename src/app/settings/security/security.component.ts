@@ -5,10 +5,26 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './security.component.html',
   styleUrls: ['./security.component.scss'],
 })
-export class SecurityComponent  implements OnInit {
+export class SecurityComponent  {
+  public alertButtons = [
+    {
+      text: 'Cancelar',
+      role: 'cancel',
+      handler: () => {
+        console.log('Alert canceled');
+      },
+    },
+    {
+      text: 'Aceptar',
+      role: 'confirm',
+      handler: () => {
+        console.log('Alert confirmed');
+      },
+    },
+  ];
 
-  constructor() { }
-
-  ngOnInit() {}
-
+  setResult(ev: CustomEvent) {
+    console.log(`Dismissed with role: ${ev.detail.role}`);  
+  }
+  
 }
