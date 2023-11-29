@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-help-support',
   templateUrl: './help-support.component.html',
   styleUrls: ['./help-support.component.scss'],
 })
-export class HelpSupportComponent  implements OnInit {
+export class HelpSupportComponent  {
+  @ViewChild('popover') popover: any;
 
-  constructor() { }
+  isOpen = false;
 
-  ngOnInit() {}
-
+  presentPopover(e: Event) {
+    this.popover.event = e;
+    this.isOpen = true;
+  }
 }

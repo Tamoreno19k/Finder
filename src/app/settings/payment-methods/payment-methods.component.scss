@@ -17,3 +17,20 @@ font-size: 3.5rem
     text-decoration: none;
     color: inherit;
 }
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.5rem;
+    background-color: #E6E6FA;
+}
+.header__image{
+    width: 6.5rem;
+}
+.settings-link{
+text-decoration: none;
+color: inherit;
+}
+ion-toolbar.md.in-toolbar.hydrated {
+    height: 89px;
+}

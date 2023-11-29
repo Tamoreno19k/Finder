@@ -1,8 +1,12 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Payment Methods
-    </ion-title>
+<ion-header class="header" >
+  <ion-toolbar color="toolbar">
+
+    <ion-buttons class="buttons" slot="start">
+      <ion-back-button class="back-button" default-href="page/tabs/tab3">  </ion-back-button>
+    </ion-buttons>
+  
+    <img class="header__image" src="../../assets/logoFinder.png" alt="logoFinder">
+    
   </ion-toolbar>
 </ion-header>
 
@@ -41,3 +45,5 @@
     </ion-card-header>
     <a class="creditCard-addButtonLink" href="http://localhost:8100/page/tabs/tab3/payment-methods"><ion-icon class="creditCard-addButton" name="add-circle-outline"></ion-icon></a>
   </ion-card>
+
+  <!-- https://ionicframework.com/docs/api/modal mpara agregar una tarjeta nueva y pintarla -->
