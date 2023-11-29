@@ -1,15 +1,19 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Settings
-    </ion-title>
+<ion-header class="header" >
+  <ion-toolbar color="toolbar">
+
+    <ion-buttons class="buttons" slot="start">
+      <ion-back-button class="back-button" default-href="page/tabs/tab2">  </ion-back-button>
+    </ion-buttons>
+  
+    <img class="header__image" src="../../assets/logoFinder.png" alt="logoFinder">
+    
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-list>
 
-    <a routerlink="security">
+    <a class="settings-link" routerLink="security">
     <ion-item>
       <ion-icon aria-hidden="true" size="large" name="shield-checkmark-outline" slot="start"></ion-icon>
       <ion-label>Seguridad</ion-label>
@@ -17,7 +21,7 @@
     </ion-item>
     </a>
 
-    <a routerlink="payment-methods">
+    <a class="settings-link" routerLink="payment-methods">
     <ion-item>
       <ion-icon aria-hidden="true" size="large" name="wallet-outline" slot="start"></ion-icon>
       <ion-label>Mis Tarjetas</ion-label>
@@ -25,14 +29,14 @@
     </ion-item>
     </a>
 
-    <!-- <a routerlink=""> -->
+    <!-- <a routerLink=""> -->
     <ion-item>
       <ion-icon aria-hidden="true" size="large" name="notifications-outline" slot="start"></ion-icon>
       <ion-toggle><ion-label>Notificaciones</ion-label></ion-toggle>
     </ion-item>
     <!-- </a> -->
 
-    <a routerlink="help-support">
+    <a class="settings-link" routerLink="help-support">
     <ion-item>
       <ion-icon aria-hidden="true" size="large" name="help-circle-outline" slot="start"></ion-icon>
       <ion-label>Ayuda & Soporte</ion-label>
@@ -40,7 +44,7 @@
     </ion-item>
     </a>
 
-    <a routerlink="about-finder">
+    <a class="settings-link" routerLink="about-finder">
     <ion-item>
       <ion-icon aria-hidden="true" size="large" name="information-circle-outline" slot="start"></ion-icon>
       <ion-label>Acerca de Finder</ion-label>
@@ -48,7 +52,7 @@
     </ion-item>
     </a>
 
-    <a routerLink="store-login" class="store-login">
+    <a class="settings-link" routerLink="store-login">
       <ion-item>
         <ion-icon aria-hidden="true" size="large" name="bag-handle-outline" slot="start"></ion-icon>
         <ion-label>Registra tu negocio</ion-label>

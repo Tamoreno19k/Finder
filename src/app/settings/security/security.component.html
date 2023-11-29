@@ -1,8 +1,12 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Security
-    </ion-title>
+<ion-header class="header" >
+  <ion-toolbar color="toolbar">
+
+    <ion-buttons class="buttons" slot="start">
+      <ion-back-button class="back-button" default-href="page/tabs/tab3">  </ion-back-button>
+    </ion-buttons>
+  
+    <img class="header__image" src="../../assets/logoFinder.png" alt="logoFinder">
+    
   </ion-toolbar>
 </ion-header>
 
@@ -10,11 +14,23 @@
 <ion-content color="light">
   <ion-list [inset]="true">
 
-<ion-button id="present-alert"  expand="block" fill="outline">Cierre de Sesión Global</ion-button>
+    <ion-button id="present-alert"  expand="block" fill="outline">Cambiar Contraseña</ion-button>
+    <ion-alert
+      trigger="present-alert"
+      header=""
+      [buttons]="alertButton"
+      (didDismiss)="setResult($event)"
+    ></ion-alert>  
+
+    <!-- este para el forgot password https://www.youtube.com/watch?v=5ihwDIZ57TE -->
+
+<br>
+
+<ion-button id="test"  expand="block" fill="outline">Cierre de Sesión Global</ion-button>
 <ion-alert
   trigger="present-alert"
   header="¿Estás seguro que quieres cerrar sesión en todos tus dispositivos?"
-  [buttons]="alertButtons"
+  [buttons]="alertButton"
   (didDismiss)="setResult($event)"
 ></ion-alert>
 
