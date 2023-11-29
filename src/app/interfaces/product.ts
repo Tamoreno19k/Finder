@@ -2,12 +2,12 @@ export interface Product {
     category: string;
     createdAt: string;
     name : string;
-    price?: number;
+    price: number;
     quantity: number;
     updatedAt: string;
-    urlImage?: string;
+    urlImage: string;
     userId: string;
-    description?: string;
+    description: string;
     __v: number;
     _id: string
 }

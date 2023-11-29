@@ -3,9 +3,8 @@
     <ion-grid [fixed]="true">
         <ion-row>
           <ion-col class="plus-container">
-            <ion-icon class="plus" name="duplicate-outline" (click)="presentAlert()"></ion-icon>
+            <ion-icon class="plus" name="duplicate-outline" (click)="alertFormCreate()"></ion-icon>
           <form
-            [formGroup]="productsForm"
             autocomplete="off"
           >
           </form>
@@ -20,7 +19,32 @@
               
                   <ion-card-content class="cards-buttons">
                     <ion-button class="btn" color="danger" (click)="deleteProductConfirm(product._id)" >Eliminar</ion-button>
-                    <ion-button class="btn" color="success">Actualizar</ion-button>
+                    <ion-button class="btn" color="success" (click)="alertFormUpdate()" >Actualizar</ion-button>
+                    <ion-alert header="Actualiza tu producto" [buttons]="alertButtons">
+                      <!-- Usa formControlName para vincular campos del formulario a elementos de entrada -->
+                      <form [formGroup]="alertForm">
+                        <ion-input 
+                          formControlName="name" 
+                        ></ion-input>
+                        <ion-input
+                          formControlName="description"
+                        ></ion-input>
+                        <ion-input
+                          formControlName="price"
+                          type="number"
+                        ></ion-input>
+                        <ion-input
+                          formControlName="quantity"
+                          type="number"
+                        ></ion-input>
+                        <ion-input
+                          formControlName="category"
+                        ></ion-input>
+                        <ion-input
+                          formControlName="urlImage"
+                        ></ion-input>
+                      </form>
+                    </ion-alert>
                   </ion-card-content>
               </ion-card>
           </ion-col>
