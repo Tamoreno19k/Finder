@@ -32,6 +32,7 @@ export class ProductsService {
   }
 
   deleteProductById(id: string) {
+    console.log(id)
     return this.http.delete(`${this.BASE_URL}/products/${id}`,
     {headers: this.headers})
   }
@@ -41,15 +42,14 @@ export class ProductsService {
     .pipe(
       tap(data => {
         console.log(data)
-        return data
+        return data;
       }),
       map(product => product.productData)
     )
   }
 
-  updateProduct(id: string, product: Product) {
-    console.log(id)
 
-    return this.http.patch(`${this.BASE_URL}/products${id}`, product, {headers: this.headers})
+  updateProduct(id: string, product: Product) {
+    return this.http.patch(`${this.BASE_URL}/products/${id}`, product, {headers: this.headers})
   }
 }
