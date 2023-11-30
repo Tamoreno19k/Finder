@@ -7,12 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsComponent } from './products/products.component';
 import { AuthPageRoutingModule } from '../auth/auth-routing.module';
+import { CategoriesComponent } from './categories/categories.component';
 
 
 @NgModule({
   declarations: [
     CmsComponent,
-    ProductsComponent
+    ProductsComponent,
+    CategoriesComponent
   ],
   imports: [
     CommonModule,

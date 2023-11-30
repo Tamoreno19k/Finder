@@ -1,10 +1,11 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { Product } from 'src/app/interfaces/product';
 import { ProductsService } from 'src/app/services/products.service';
 import { ValidateFormsService } from 'src/app/services/validate-forms.service';
+import { map, tap } from 'rxjs'
 
 @Component({
   selector: 'app-products',
@@ -14,26 +15,34 @@ import { ValidateFormsService } from 'src/app/services/validate-forms.service';
 export class ProductsComponent  implements OnInit {
   
   products!: Product[]
-  productsForm: FormGroup
+  productId!: string
+
+  public alertButtons = ['OK'];
+  public alertForm!: FormGroup;
+  private alertInputValues = {}; 
 
   constructor(
     private productServices: ProductsService,
-    private formBuilder: FormBuilder,
+    private fb: FormBuilder,
     private alertController: AlertController,
     private validateForm: ValidateFormsService,
-    private http: HttpClient
-  ) { 
-    this.productsForm = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(3)]],
-      price: ['', [Validators.required, this.validateForm.validatePrice ]],
-      quantity: ['', [Validators.required, this.validateForm.validateQuantity ]],
-      urlImage: ['', [Validators.required, this.validateForm.validateNormalUrl ]],
-      description: ['', [Validators.required, this.validateForm.validateDescription ]],
-      category: ['']
-    })
+    private activeRoute: ActivatedRoute
+  ) { }
+
+  
+  ngOnInit() {
+    this.loadProducts()
+    this.alertForm = this.fb.group({
+        name: [''],
+        description: [''],
+        price: [''],
+        quantity: [''],
+        category: [''],
+        urlImage: ['']
+      });
   }
 
-async presentAlert() {
+async alertFormCreate() {
   const alert = await this.alertController.create({
     header: 'Crea un nuevo producto',
     inputs: [
@@ -64,7 +73,7 @@ async presentAlert() {
       {
         name: 'urlImage',
         type: 'text',
-        placeholder: 'direccion imagen'
+        placeholder: 'direccion imagen',
       }
     ],
     buttons: [
@@ -86,8 +95,105 @@ async presentAlert() {
   await alert.present()
 }
 
-  ngOnInit() {
-    this.loadProducts()
+getProductId() {
+  this.activeRoute.params
+    .pipe(
+      tap(response => {
+        console.log(response)
+        return response
+      }),
+      map(response => response['id'])
+    ).subscribe(id => {
+      console.log(id)
+
+      this.productId = id
+
+      this.productServices.getProductById(id).subscribe(( data: Product ) => {
+        console.log(data)
+
+        const { name, description, price, quantity, urlImage, category } = data;
+
+        this.alertForm.setValue({
+            name,
+            description,
+            price,
+            quantity,
+            urlImage,
+            category
+        })
+      })
+    })
+}
+
+async alertFormUpdate() {
+    const alert = await this.alertController.create({
+      header: 'Please enter your info',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          },
+        },
+        {
+          text: 'Actualizar',
+          handler: (data) => {
+            // Maneja la acción cuando se hace clic en OK y accede a los valores del formulario
+            this.handleFormData(data);
+          },
+        },
+      ],
+      inputs: [
+        {
+          name: 'name',
+          type: 'text',
+          placeholder: 'Nuevo nombre',
+          value: this.alertForm.get('name')?.value,
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          placeholder: 'Nueva descripcion',
+          value: this.alertForm.get('description')?.value,
+        },
+        {
+          name: 'price',
+          type: 'number',
+          placeholder: 'Nuevo precio',
+          value: this.alertForm.get('price')?.value,
+        },
+        {
+          name: 'quantity',
+          type: 'number',
+          placeholder: 'Nueva cantidad',
+          value: this.alertForm.get('quantity')?.value,
+        },
+        {
+            name: 'category',
+            type: 'text',
+            placeholder: 'Nueva categoria',
+            value: this.alertForm.get('category')?.value,
+        },
+        {
+            name: 'urlImage',
+            type: 'text',
+            placeholder: 'Nueva direccion imagen',
+            value: this.alertForm.get('urlImage')?.value,
+        },
+      ],
+    });
+
+    await alert.present();
+  }
+
+  updateFormValues(data:any) {
+    this.alertForm.setValue({
+      name: data.name,
+      nickname: data.nickname,
+      age: data.age,
+      about: data.about,
+    });
   }
 
   loadProducts() {
@@ -95,6 +201,17 @@ async presentAlert() {
       console.log(data.allProducts)
       this.products = data.allProducts
     })
+  }
+
+  handleFormData(data:any) {
+    // Actualiza el formulario con los valores del cuadro de diálogo
+    this.updateFormValues(data);
+
+    const formData = this.alertForm.value;
+    console.log('Form Data:', formData);
+
+    // Realiza validación y otras acciones con los datos del formulario
+    // Puedes acceder a campos individuales, por ejemplo, formData.name, formData.nickname, etc.
   }
 
   createProduct(data: Product) {
@@ -132,7 +249,16 @@ async presentAlert() {
 
   deleteProduct(id: string) {
     this.productServices.deleteProductById(id).subscribe(() => {
+      this.loadProducts()
     })
-    this.loadProducts()
+  }
+
+  updateProduct() {
+    //console.log(this.productsForm)
+    this.productServices.updateProduct(this.productId, this.alertForm.value)
+        .subscribe(data => {
+            console.log(data)
+            this.alertForm.reset()
+        })
   }
 }

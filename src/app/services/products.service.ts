@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { ResponseProducts } from '../interfaces/response-products';
 import { Product } from '../interfaces/product';
+import { map, tap } from 'rxjs';
+import { ResponseProduct } from '../interfaces/response-product';
 
 @Injectable({
   providedIn: 'root'
@@ -32,5 +34,22 @@ export class ProductsService {
   deleteProductById(id: string) {
     return this.http.delete(`${this.BASE_URL}/products/${id}`,
     {headers: this.headers})
+  }
+
+  getProductById(id: string){
+    return this.http.get<ResponseProduct>(`${this.BASE_URL}/products/${id}`)
+    .pipe(
+      tap(data => {
+        console.log(data)
+        return data
+      }),
+      map(product => product.productData)
+    )
+  }
+
+  updateProduct(id: string, product: Product) {
+    console.log(id)
+
+    return this.http.patch(`${this.BASE_URL}/products${id}`, product, {headers: this.headers})
   }
 }

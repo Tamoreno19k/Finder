@@ -1,0 +1,38 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.5rem;
+    background-color: #E6E6FA;
+}
+.header__image{
+    width: 6.5rem;
+}
+.settings-link{
+text-decoration: none;
+color: inherit;
+}
+ion-toolbar.md.in-toolbar.hydrated {
+    height: 89px;
+}
+.helpTitle{
+    display: flex;
+    justify-content: center;
+}
+.card-link{
+    text-decoration: none;
+}
+.card-title
+{
+    display: flex;
+    justify-content: center;
+}
+.card-subtitle{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.help-icon{
+    margin-left: 8.7rem;
+}
+

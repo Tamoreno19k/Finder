@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CmsComponent } from './cms.page';
 import { ProductsComponent } from './products/products.component';
 import { verificationAuthGuard } from '../guards/auth-guard.guard';
+import { CategoriesComponent } from './categories/categories.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
       {
         path: 'products',
         component: ProductsComponent
+      },
+      {
+        path: 'categories',
+        component: CategoriesComponent
       }
     ],
     canActivate: [verificationAuthGuard]

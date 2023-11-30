@@ -5,26 +5,13 @@
     height: 3.5rem;
     background-color: #E6E6FA;
 }
-
 .header__image{
     width: 6.5rem;
-}
-#logOutCustomers {
-    display: flex;
-    flex: 1 1 0%;
-    flex-direction: inherit;
-    align-items: inherit;
-    align-self: stretch;
-    text-overflow: ellipsis;
-    overflow: inherit;
-    box-sizing: border-box;
-    justify-content: center;
 }
 .settings-link{
 text-decoration: none;
 color: inherit;
 }
 ion-toolbar.md.in-toolbar.hydrated {
-    // background-color: #4242f0;
     height: 89px;
 }
