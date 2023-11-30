@@ -13,9 +13,11 @@ import { map, tap } from 'rxjs'
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent  implements OnInit {
+
+  selectedId!: string
   
   products!: Product[]
-  productId!: string
+  //productId!: string
 
   public alertButtons = ['OK'];
   public alertForm!: FormGroup;
@@ -31,6 +33,7 @@ export class ProductsComponent  implements OnInit {
 
   
   ngOnInit() {
+
     this.loadProducts()
     this.alertForm = this.fb.group({
         name: [''],
@@ -95,37 +98,8 @@ async alertFormCreate() {
   await alert.present()
 }
 
-getProductId() {
-  this.activeRoute.params
-    .pipe(
-      tap(response => {
-        console.log(response)
-        return response
-      }),
-      map(response => response['id'])
-    ).subscribe(id => {
-      console.log(id)
-
-      this.productId = id
-
-      this.productServices.getProductById(id).subscribe(( data: Product ) => {
-        console.log(data)
-
-        const { name, description, price, quantity, urlImage, category } = data;
-
-        this.alertForm.setValue({
-            name,
-            description,
-            price,
-            quantity,
-            urlImage,
-            category
-        })
-      })
-    })
-}
-
-async alertFormUpdate() {
+async alertFormUpdate(id: string) {
+  this.selectedId = id
     const alert = await this.alertController.create({
       header: 'Please enter your info',
       buttons: [
@@ -140,7 +114,7 @@ async alertFormUpdate() {
           text: 'Actualizar',
           handler: (data) => {
             // Maneja la acción cuando se hace clic en OK y accede a los valores del formulario
-            this.handleFormData(data);
+            this.updateProduct(data, this.selectedId);
           },
         },
       ],
@@ -190,9 +164,11 @@ async alertFormUpdate() {
   updateFormValues(data:any) {
     this.alertForm.setValue({
       name: data.name,
-      nickname: data.nickname,
-      age: data.age,
-      about: data.about,
+      description: data.description,
+      price: data.price,
+      quantity: data.quantity,
+      category: data.category,
+      urlImage: data.urlImage
     });
   }
 
@@ -201,17 +177,6 @@ async alertFormUpdate() {
       console.log(data.allProducts)
       this.products = data.allProducts
     })
-  }
-
-  handleFormData(data:any) {
-    // Actualiza el formulario con los valores del cuadro de diálogo
-    this.updateFormValues(data);
-
-    const formData = this.alertForm.value;
-    console.log('Form Data:', formData);
-
-    // Realiza validación y otras acciones con los datos del formulario
-    // Puedes acceder a campos individuales, por ejemplo, formData.name, formData.nickname, etc.
   }
 
   createProduct(data: Product) {
@@ -253,12 +218,31 @@ async alertFormUpdate() {
     })
   }
 
-  updateProduct() {
-    //console.log(this.productsForm)
-    this.productServices.updateProduct(this.productId, this.alertForm.value)
+  updateProduct(data: any, id: string) {
+    console.log(id)
+    this.updateFormValues(data)
+    console.log(this.alertForm.value)
+    this.productServices.updateProduct(id, this.alertForm.value )
         .subscribe(data => {
             console.log(data)
             this.alertForm.reset()
         })
+  }
+
+  getOneProduct(selectedId: string){ 
+    this.productServices.getProductById(selectedId).subscribe((data: Product) => {
+      console.log(data)
+
+      const {name, description, price, quantity, urlImage, category} = data
+
+      this.alertForm.setValue({
+        name,
+        description,
+        price,
+        quantity,
+        urlImage,
+        category
+      })
+    })
   }
 }
