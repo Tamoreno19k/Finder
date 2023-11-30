@@ -14,19 +14,13 @@
 <ion-content color="light">
   <ion-list [inset]="true">
 
-    <ion-button id="present-alert"  expand="block" fill="outline">Cambiar Contraseña</ion-button>
-    <ion-alert
-      trigger="present-alert"
-      header=""
-      [buttons]="alertButton"
-      (didDismiss)="setResult($event)"
-    ></ion-alert>  
+    <ion-button routerLink="/auth/reset-password" expand="block" fill="outline">Cambiar Contraseña</ion-button>
 
     <!-- este para el forgot password https://www.youtube.com/watch?v=5ihwDIZ57TE -->
 
 <br>
 
-<ion-button id="test"  expand="block" fill="outline">Cierre de Sesión Global</ion-button>
+<ion-button id="present-alert"  expand="block" fill="outline">Cierre de Sesión Global</ion-button>
 <ion-alert
   trigger="present-alert"
   header="¿Estás seguro que quieres cerrar sesión en todos tus dispositivos?"
