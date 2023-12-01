@@ -44,7 +44,7 @@ export class ProductsService {
         console.log(data)
         return data;
       }),
-      map(product => product.productData)
+      map(product => product.getProduct)
     )
   }
 

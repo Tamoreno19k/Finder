@@ -5,7 +5,6 @@ import { AlertController } from '@ionic/angular';
 import { Product } from 'src/app/interfaces/product';
 import { ProductsService } from 'src/app/services/products.service';
 import { ValidateFormsService } from 'src/app/services/validate-forms.service';
-import { map, tap } from 'rxjs'
 
 @Component({
   selector: 'app-products',
@@ -15,9 +14,10 @@ import { map, tap } from 'rxjs'
 export class ProductsComponent  implements OnInit {
 
   selectedId!: string
-  
   products!: Product[]
-  //productId!: string
+  productId!: string
+  id!: string | null;
+  productsUpdate!: Product[]
 
   public alertButtons = ['OK'];
   public alertForm!: FormGroup;
@@ -29,20 +29,21 @@ export class ProductsComponent  implements OnInit {
     private alertController: AlertController,
     private validateForm: ValidateFormsService,
     private activeRoute: ActivatedRoute
-  ) { }
+  ) { 
+  }
 
   
   ngOnInit() {
-
     this.loadProducts()
+
     this.alertForm = this.fb.group({
-        name: [''],
-        description: [''],
-        price: [''],
-        quantity: [''],
-        category: [''],
-        urlImage: ['']
-      });
+      name: [''],
+      description: [''],
+      price: [''],
+      quantity: [''],
+      category: [''],
+      urlImage: ['']
+    });
   }
 
 async alertFormCreate() {
@@ -100,8 +101,9 @@ async alertFormCreate() {
 
 async alertFormUpdate(id: string) {
   this.selectedId = id
+  this.loadData()
     const alert = await this.alertController.create({
-      header: 'Please enter your info',
+      header: 'Actualiza tu producto',
       buttons: [
         {
           text: 'Cancelar',
@@ -159,18 +161,33 @@ async alertFormUpdate(id: string) {
     });
 
     await alert.present();
-  }
+}
 
-  updateFormValues(data:any) {
-    this.alertForm.setValue({
-      name: data.name,
-      description: data.description,
-      price: data.price,
-      quantity: data.quantity,
-      category: data.category,
-      urlImage: data.urlImage
-    });
-  }
+loadData() {
+  this.productServices.getProductById(this.selectedId).subscribe((data: Product) => {
+  const { name, description, price, quantity, urlImage, category } = data;
+
+   this.alertForm.patchValue({
+     name,
+     description,
+     price,
+     quantity,
+     urlImage,
+     category
+  });
+ });
+}
+
+updateFormValues(data:any) {
+  this.alertForm.setValue({
+    name: data.name,
+    description: data.description,
+    price: data.price,
+    quantity: data.quantity,
+    category: data.category,
+    urlImage: data.urlImage
+  });
+}
 
   loadProducts() {
     this.productServices.getAllProducts().subscribe(data => {
@@ -218,31 +235,13 @@ async alertFormUpdate(id: string) {
     })
   }
 
-  updateProduct(data: any, id: string) {
-    console.log(id)
-    this.updateFormValues(data)
-    console.log(this.alertForm.value)
-    this.productServices.updateProduct(id, this.alertForm.value )
+updateProduct(data: any, id: string) {
+  this.updateFormValues(data)
+     this.productServices.updateProduct(id, this.alertForm.value )
         .subscribe(data => {
             console.log(data)
             this.alertForm.reset()
+            this.loadProducts()
         })
-  }
-
-  getOneProduct(selectedId: string){ 
-    this.productServices.getProductById(selectedId).subscribe((data: Product) => {
-      console.log(data)
-
-      const {name, description, price, quantity, urlImage, category} = data
-
-      this.alertForm.setValue({
-        name,
-        description,
-        price,
-        quantity,
-        urlImage,
-        category
-      })
-    })
   }
 }
