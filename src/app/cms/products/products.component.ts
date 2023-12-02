@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { Product } from 'src/app/interfaces/product';
 import { ProductsService } from 'src/app/services/products.service';
-import { ValidateFormsService } from 'src/app/services/validate-forms.service';
+
 
 @Component({
   selector: 'app-products',
@@ -21,14 +20,11 @@ export class ProductsComponent  implements OnInit {
 
   public alertButtons = ['OK'];
   public alertForm!: FormGroup;
-  private alertInputValues = {}; 
 
   constructor(
     private productServices: ProductsService,
     private fb: FormBuilder,
     private alertController: AlertController,
-    private validateForm: ValidateFormsService,
-    private activeRoute: ActivatedRoute
   ) { 
   }
 
@@ -101,7 +97,6 @@ async alertFormCreate() {
 
 async alertFormUpdate(id: string) {
   this.selectedId = id
-  this.loadData()
     const alert = await this.alertController.create({
       header: 'Actualiza tu producto',
       buttons: [
@@ -163,8 +158,8 @@ async alertFormUpdate(id: string) {
     await alert.present();
 }
 
-loadData() {
-  this.productServices.getProductById(this.selectedId).subscribe((data: Product) => {
+loadData(id: string) {
+  this.productServices.getProductById(id).subscribe((data: Product) => {
   const { name, description, price, quantity, urlImage, category } = data;
 
    this.alertForm.patchValue({
@@ -175,6 +170,8 @@ loadData() {
      urlImage,
      category
   });
+
+  this.alertFormUpdate(id)
  });
 }
 

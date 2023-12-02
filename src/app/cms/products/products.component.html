@@ -19,7 +19,7 @@
               
                   <ion-card-content class="cards-buttons">
                     <ion-button class="btn" color="danger" (click)="deleteProductConfirm(product._id)" >Eliminar</ion-button>
-                    <ion-button class="btn" color="success" (click)="alertFormUpdate(product._id)" >Actualizar</ion-button>
+                      <ion-button class="btn" color="success" (click)="loadData(product._id)" >Actualizar</ion-button>
                     <ion-alert header="Actualiza tu producto" [buttons]="alertButtons">
                       <!-- Usa formControlName para vincular campos del formulario a elementos de entrada -->
                       <form [formGroup]="alertForm">
