@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthGoogleService } from '../services/auth-google.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-cms',
@@ -11,7 +12,8 @@ export class CmsComponent  implements OnInit {
 
   constructor(
     private authGoogleService: AuthGoogleService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {}
@@ -22,8 +24,8 @@ export class CmsComponent  implements OnInit {
   }
 
   logOut() {
-    this.authGoogleService.logOutGoogle()
-    this.router.navigate(['page/tabs/tab3/store-login'])
+    this.authService.removeToken('token')
+    this.router.navigate(['auth/login-store'])
   }
 
   goToProducts(event: Event): void {

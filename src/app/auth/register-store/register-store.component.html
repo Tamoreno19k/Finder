@@ -1,0 +1,181 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Register
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="main" [fullscreen]="true">
+  <form
+  [formGroup]="registerForm"
+  (ngSubmit)="onSubmit()"
+  class="form form-auth form-login"
+  autocomplete="off"
+  >
+    <ion-card class="register-box">
+      <ion-card-header>
+        <ion-card-title class="register-box__titulo">Registro</ion-card-title>
+        <ion-card-subtitle class="register-box__subtitulo">¡Gracias por Registrarte!</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list class="register-box__form">
+   
+          <ion-input 
+            class="register-box__user-info" 
+            type="text" 
+            formControlName="storeName"
+            placeholder="Nombre del negocio"
+            minlenght="3"
+            />
+
+          <div 
+            *ngIf="registerForm.get( 'storeName' )?.invalid && registerForm.get( 'storeName' )?.dirty && registerForm.get( 'storeName' )?.touched" 
+            class="error-message" >
+            <small *ngIf="registerForm.get( 'storeName' )?.errors?.[ 'required' ]" >
+              <strong>El nombre de negocio es requerido.</strong>
+            </small>
+            <small *ngIf="registerForm.get( 'storeName' )?.errors?.[ 'minLength' ]" >
+              <strong>Este campo debe tener al menos 3 caracteres.</strong>
+            </small>
+          </div>
+
+          <ion-input 
+            class="register-box__user-info" 
+            type="text" 
+            formControlName="urlLogo"
+            placeholder="Direccion Url del Logo"
+            minlenght="3"
+            />
+
+          <div 
+            *ngIf="registerForm.get( 'urlLogo' )?.invalid && registerForm.get( 'urlLogo' )?.dirty && registerForm.get( 'urlLogo' )?.touched" 
+            class="error-message" >
+            <small *ngIf="registerForm.get( 'urlLogo' )?.errors?.[ 'required' ]" >
+              <strong>El nombre de negocio es requerido.</strong>
+            </small>
+            <small *ngIf="registerForm.get( 'urlLogo' )?.errors?.[ 'minLength' ]" >
+              <strong>Este campo debe tener al menos 3 caracteres.</strong>
+            </small>
+          </div>
+
+          <ion-input 
+            class="register-box__user-info" 
+            type="number" 
+            formControlName="nit"
+            placeholder="NIT"
+            minlenght="3" 
+            /> 
+  
+          <ion-input 
+            class="register-box__user-info" 
+            type="text"
+            formControlName="mail" 
+            placeholder="Usuario-Mail" />
+            <div 
+            *ngIf="registerForm.get( 'mail' )?.invalid && registerForm.get( 'mail' )?.dirty && registerForm.get( 'mail' )?.touched" 
+            class="error-message" >
+            <small *ngIf="registerForm.get( 'mail' )?.errors?.[ 'required' ]">
+            <strong>El usuario es requerido.</strong>
+            </small>
+            <small *ngIf="registerForm.get( 'mail' )?.errors?.[ 'email' ]">
+            <strong>El usuario debe ser un correo electrónico.</strong>
+            </small>
+          </div>
+
+          <ion-input 
+            class="register-box__user-info" 
+            type="password"
+            formControlName="password" 
+            placeholder="Contraseña"
+            minlenght="6"
+            maxlenght="15"
+            />
+
+          <div *ngIf="registerForm.get( 'password' )?.invalid && registerForm.get( 'password' )?.dirty && registerForm.get( 'password' )?.touched" class="error-message">
+            <small *ngIf="registerForm.get( 'password' )?.errors?.[ 'required' ]">
+            <strong>La contraseña requerida.</strong>
+            </small>
+            <small *ngIf="registerForm.get( 'password' )?.errors?.[ 'minLength' ]">
+            <strong>La contraseña debe tener mínimo 6 caracteres.</strong>
+            </small>
+            <small *ngIf="registerForm.get( 'password' )?.errors?.[ 'maxLength' ]">
+            <strong>La contraseña debe tener máximo 12 caracteres.</strong>
+            </small>
+          </div> 
+        
+          <!-- <ion-input 
+            class="register-box__user-info" 
+            type="password"
+            formControlName="repeatPassword" 
+            placeholder="Repetir Contraseña" />  -->
+            <!--  Para este me toca mirar como funciona la parte del small  -->
+          
+          <ion-input 
+            class="register-box__user-info" 
+            type="tel"
+            formControlName="phone"
+            placeholder="Celular" />
+
+            <!--  Para este me toca mirar como funciona la parte del small  x2 -->
+          
+            <ion-input 
+            class="register-box__user-info" 
+            type="text" 
+            formControlName="address"
+            placeholder="Direccion del negocio"
+            minlenght="3"
+            />
+
+          <div 
+            *ngIf="registerForm.get( 'address' )?.invalid && registerForm.get( 'address' )?.dirty && registerForm.get( 'address' )?.touched" 
+            class="error-message" >
+            <small *ngIf="registerForm.get( 'address' )?.errors?.[ 'required' ]" >
+              <strong>El nombre de negocio es requerido.</strong>
+            </small>
+            <small *ngIf="registerForm.get( 'address' )?.errors?.[ 'minLength' ]" >
+              <strong>Este campo debe tener al menos 3 caracteres.</strong>
+            </small>
+          </div>
+
+          <ion-input 
+          class="register-box__user-info" 
+          type="text" 
+          formControlName="description"
+          placeholder="Descripcion corta del negocio"
+          minlenght="3"
+          />
+
+        <div 
+          *ngIf="registerForm.get( 'description' )?.invalid && registerForm.get( 'description' )?.dirty && registerForm.get( 'description' )?.touched" 
+          class="error-message" >
+          <small *ngIf="registerForm.get( 'description' )?.errors?.[ 'required' ]" >
+            <strong>El nombre de negocio es requerido.</strong>
+          </small>
+          <small *ngIf="registerForm.get( 'description' )?.errors?.[ 'minLength' ]" >
+            <strong>Este campo debe tener al menos 3 caracteres.</strong>
+          </small>
+        </div>
+
+        </ion-list>
+
+      <div class="field">
+        <div [class]="classMessage">
+          {{ message }}
+        </div>
+      </div>
+
+        <ion-button 
+          class="boton-register" 
+          type="submit"
+          [disabled]="registerForm.invalid">
+          Registrarse
+        </ion-button>
+
+<div class="methods">
+    </div>
+      <ion-text class="other-methods__sign-in">
+        Ya estás registrado?
+        <p ><a class="other-methods__enlace-sign-in" routerLink="/auth/login-store">&nbsp;Inicia sesión aquí</a></p>
+      </ion-text>
+  

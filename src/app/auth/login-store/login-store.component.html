@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Login Store
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="field">
+  <div class="login-box">
+    <h1 class="login-box__titulo">Inicia sesión</h1>
+    <p class="login-box__subtitulo">Como negocio</p>
+
+    <form
+      class="form form-auth form-login"
+      [formGroup]="loginForm"
+      (ngSubmit)="login()"
+      autocomplete="off" 
+      >
+
+      <div class="login-box__login-info"> 
+        <ion-input  id="mail"
+                    class="login-box__user-name" 
+                    type="email" 
+                    placeholder="&nbsp;&nbsp;Correo electrónico" 
+                    formControlName="mail">
+        </ion-input>
+        <div
+        *ngIf="loginForm.get( 'mail' )?.invalid && ( loginForm.get( 'mail' )?.dirty || loginForm.get( 'mail' )?.touched )" class="error-message"
+        >
+
+        <small *ngIf="loginForm.get( 'mail' )?.errors?.[ 'required' ]">
+          Email es requerido.
+        </small>
+        <small *ngIf="loginForm.get( 'mail' )?.errors?.[ 'pattern' ]">
+          Por favor, introduzca un email válido.
+        </small>
+      </div>
+    </div>
+
+      <div class="login-box__login-info">
+        <ion-input  id="password"
+                    class="login-box__password" 
+                    type="password" 
+                    placeholder="&nbsp;&nbsp;Contraseña" 
+                    name="password" 
+                    formControlName="password">
+                    
+        </ion-input>
+      </div>
+
+      <!-- <div
+      *ngIf="loginForm.get( 'password' )?.invalid && ( loginForm.get( 'password' )?.dirty || loginForm.get( 'password' )?.touched )" class="error-message"
+      > Esto esta hacindo que si yo no toco el field del password, no me muestra el boton de login -->  
+      <small *ngIf="loginForm.get( 'password' )?.errors?.[ 'required' ]">
+        Contraseña es requerida.
+      </small>
+      <div class="login-box__forgot-password">
+        <a class="login-box__forgot-password-enlace" routerLink="/auth/reset-password">¿Olvidaste tu contraseña?</a>
+      </div>
+
+      <ion-button 
+      class="boton" 
+      expand="full" 
+      type="submit"
+      class="btn btn-primary"
+      type="submit"
+      [disabled]="this.loginForm.invalid"
+      >
+      Iniciar Sesión</ion-button>
+  <div class="other-methods__sign-in">¿No estás registrado?
+    <p ><a class="other-methods__enlace-sign-in" routerLink="/auth/register-store">&nbsp;Comienza Aquí</a></p>
+  </div>

@@ -6,5 +6,4 @@ export interface User {
     email?: string;           // ? Opcional
     phone?: number;
     role?: string;
-
 }

@@ -50,6 +50,5 @@ export class LoginComponent{
 
     });
     // this.router.navigate(['pages', 'tabs', 'tabs2'])
-
   }
 }

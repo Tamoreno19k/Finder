@@ -6,7 +6,6 @@ import { settingsPage } from './settings.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { settingsPageRoutingModule } from './settings-routing.module';
-import { LoginStoreComponent } from './login-store/login-store.component';
 import { SecurityComponent } from './security/security.component';
 import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
 
@@ -23,7 +22,6 @@ import { AboutFinderComponent } from './about-finder/about-finder.component';
   ],
   declarations: [
     settingsPage,
-    LoginStoreComponent,
     SecurityComponent,
     PaymentMethodsComponent,
     HelpSupportComponent,

@@ -6,6 +6,8 @@ import { User } from '../interfaces/user';
 import { environment } from 'src/environments/environment';
 import { ResponseAuth } from '../interfaces/response-auth';
 import { catchError, map, of, tap } from 'rxjs';
+import { Store } from '../interfaces/store';
+import { ResponseStoreAuth } from '../interfaces/response-store-auth';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +27,12 @@ export class AuthService {
   
     return this.http.post<ResponseAuth>( URL, newUser) 
   }
+
+  storeRegister (newStore: Store){ 
+    const URL = `${ this.BASE_URL}/auth/cms/register`
+  
+    return this.http.post<ResponseStoreAuth>( URL, newStore) 
+  }
   
   login( credentials: User ) { 
     const URL = `${ this.BASE_URL }/auth/login`;
@@ -38,6 +46,24 @@ export class AuthService {
 
         }),
         map( ( response: ResponseAuth ) => response.ok ),
+        catchError( error => {
+          return of( false );
+        })
+      );
+  }
+
+  storeLogin( credentials: Store ) { 
+    const URL = `${ this.BASE_URL }/auth/cms/login`;
+  
+    return this.http.post<ResponseStoreAuth>( URL, credentials )
+      .pipe(
+        tap( ( response: ResponseStoreAuth ) => {
+          localStorage.setItem( 'token', response.token! );
+          
+          this.router.navigateByUrl( '/cms/cms-home' );
+
+        }),
+        map( ( response: ResponseStoreAuth ) => response.store_id ),
         catchError( error => {
           return of( false );
         })
@@ -66,5 +92,8 @@ verifyToken(){
       return of (false);
     } )
   );
+}
+  removeToken(token: string) {
+    localStorage.removeItem(token)
 }
 }

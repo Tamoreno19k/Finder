@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { settingsPage } from './settings.page';
-import { LoginStoreComponent } from './login-store/login-store.component';
 import { SecurityComponent } from './security/security.component';
 import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
 import { HelpSupportComponent } from './help-support/help-support.component';
@@ -28,10 +27,6 @@ const routes: Routes = [
     path: 'about-finder',
     component: AboutFinderComponent
   },
-  {
-    path: 'store-login',
-    component: LoginStoreComponent
-  }
 ];
 
 @NgModule({

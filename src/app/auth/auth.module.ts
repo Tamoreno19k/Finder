@@ -10,6 +10,8 @@ import { AuthPage } from './auth.page';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { LoginStoreComponent } from './login-store/login-store.component';
+import { RegisterStoreComponent } from './register-store/register-store.component';
 
 @NgModule({
   imports: [
@@ -24,7 +26,9 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
   declarations: [
     AuthPage, 
     LoginComponent,
-    RegisterComponent, 
+    LoginStoreComponent,
+    RegisterComponent,
+    RegisterStoreComponent,
     ResetPasswordComponent
   ]})
 export class AuthPageModule {}
