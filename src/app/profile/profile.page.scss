@@ -1,10 +1,28 @@
-ion-list.list_profile.md.list-md.hydrated {
-    margin-top: 5rem;
-    padding: 1vw;
-    width: 23rem;
+ion-list.list_profile.md.list-md.hydrated[_ngcontent-ng-c4107587374] {
+    /* margin-top: 5rem; */
+    /* padding: 1vw; */
+    /* width: 23rem; */
     background-color: #fff;
     box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1), -5px 0 10px rgba(0, 0, 0, 0.1);
-    margin-left: 1rem;
+    /* margin-left: 1rem; */
     height: 33rem;
     border-radius: 2.5vw;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.5rem;
+    background-color: #E6E6FA;
+}
+.header__image{
+    width: 6.5rem;
+}
+.settings-link{
+text-decoration: none;
+color: inherit;
+}
+ion-toolbar.md.in-toolbar.hydrated {
+    height: 89px;
 }

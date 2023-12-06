@@ -41,7 +41,7 @@ export class profilePage {
 
         this.userId = id
 
-        this.userService.getUserById(id).subscribe((data: User) => {
+        this.userService.getUserById(id).subscribe((data: User): void => {
           console.log(data)
 
           const {name, lastName, username, phone, email} = data;
