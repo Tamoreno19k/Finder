@@ -59,15 +59,20 @@ export class AuthService {
       .pipe(
         tap( ( response: ResponseStoreAuth ) => {
           localStorage.setItem( 'token', response.token! );
+          localStorage.setItem('storeId', response.storeId!)
           
           this.router.navigateByUrl( '/cms/cms-home' );
 
         }),
-        map( ( response: ResponseStoreAuth ) => response.store_id ),
+        map( ( response: ResponseStoreAuth ) => response.ok ),
         catchError( error => {
           return of( false );
         })
       );
+  }
+
+  getStoreId(): string | null {
+    return localStorage.getItem('storeId')
   }
 
 verifyToken(){
@@ -93,7 +98,8 @@ verifyToken(){
     } )
   );
 }
-  removeToken(token: string) {
+  removeToken(token: string, storeId: string) {
     localStorage.removeItem(token)
+    localStorage.removeItem(storeId)
 }
 }

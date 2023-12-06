@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 import { Product } from 'src/app/interfaces/product';
+import { AuthService } from 'src/app/services/auth.service';
 import { ProductsService } from 'src/app/services/products.service';
 
 
@@ -17,6 +18,7 @@ export class ProductsComponent  implements OnInit {
   productId!: string
   id!: string | null;
   productsUpdate!: Product[]
+  storeId!: string | null
 
   public alertButtons = ['OK'];
   public alertForm!: FormGroup;
@@ -25,12 +27,14 @@ export class ProductsComponent  implements OnInit {
     private productServices: ProductsService,
     private fb: FormBuilder,
     private alertController: AlertController,
+    private authService: AuthService
   ) { 
   }
 
   
   ngOnInit() {
     this.loadProducts()
+    console.log(this.storeId)
 
     this.alertForm = this.fb.group({
       name: [''],
@@ -187,9 +191,13 @@ updateFormValues(data:any) {
 }
 
   loadProducts() {
-    this.productServices.getAllProducts().subscribe(data => {
-      console.log(data.allProducts)
-      this.products = data.allProducts
+    this.storeId = this.authService.getStoreId()
+    this.productServices.getAllProducts().subscribe((data) => {
+      const storeProducts = data.allProducts.filter((productos: Product) => {
+        return productos.storeId === this.storeId
+      })
+      console.log(storeProducts)
+      this.products = storeProducts
     })
   }
 
@@ -241,4 +249,8 @@ updateProduct(data: any, id: string) {
             this.loadProducts()
         })
   }
+}
+
+function producto(value: Product, index: number, array: Product[]): value is Product {
+  throw new Error('Function not implemented.');
 }

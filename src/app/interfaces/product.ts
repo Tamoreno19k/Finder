@@ -6,7 +6,7 @@ export interface Product {
     quantity: number;
     updatedAt: string;
     urlImage: string;
-    userId: string;
+    storeId: string;
     description: string;
     __v: number;
     _id: string;

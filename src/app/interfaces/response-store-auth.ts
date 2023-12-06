@@ -4,6 +4,6 @@ export interface ResponseStoreAuth {
     ok: boolean;
     msg?: string;
     token?: string;
-    store_id: string
+    storeId?: string
     storeData: Store
 }

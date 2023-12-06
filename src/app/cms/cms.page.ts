@@ -24,7 +24,7 @@ export class CmsComponent  implements OnInit {
   }
 
   logOut() {
-    this.authService.removeToken('token')
+    this.authService.removeToken('token', 'storeId')
     this.router.navigate(['auth/login-store'])
   }
 

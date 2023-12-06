@@ -32,7 +32,6 @@ export class LoginStoreComponent  implements OnInit {
   login() {
 
     this.authSevice.storeLogin(this.loginForm.value).subscribe((data) => {
-      console.log(data);
   
       if( ! data){
         this.classMessage = 'message error';
