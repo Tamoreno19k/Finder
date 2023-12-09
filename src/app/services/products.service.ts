@@ -52,4 +52,11 @@ export class ProductsService {
   updateProduct(id: string, product: Product) {
     return this.http.patch(`${this.BASE_URL}/products/${id}`, product, {headers: this.headers})
   }
+
+  searchStoreByProduct (productName: string) {
+    return this.http.get(`${this.BASE_URL}/products/search/${productName}`)
+    .pipe(
+      map ((res) => res)
+    )
+  }
 }

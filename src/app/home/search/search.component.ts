@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs';
+import { ProductsService } from 'src/app/services/products.service';
+import { Store } from 'src/app/interfaces/store'
 
 @Component({
   selector: 'app-search',
@@ -11,18 +13,22 @@ import { debounceTime } from 'rxjs';
 export class SearchComponent  implements OnInit {
 
   searchForm = new FormControl()
+  nameProduct!: string
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private productService: ProductsService
   ) { }
 
   ngOnInit() {
-    this.observerChangeSearch()
+    this.searchProduct()
   }
 
-  observerChangeSearch() {
-    this.searchForm.valueChanges.pipe(debounceTime(500)).subscribe(value => {
-      console.log(value)
+  searchProduct() {
+    this.productService.searchStoreByProduct(this.nameProduct).subscribe(data => {
+      this.searchForm.valueChanges.pipe(debounceTime(500)).subscribe(value => {
+        console.log(value)
+      })
     })
   }
   
