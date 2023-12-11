@@ -5,6 +5,8 @@ import { ResponseProducts } from '../interfaces/response-products';
 import { Product } from '../interfaces/product';
 import { map, tap } from 'rxjs';
 import { ResponseProduct } from '../interfaces/response-product';
+import { ResponseSearchStore } from '../interfaces/response-search-store';
+import { Store } from '../interfaces/store'
 
 @Injectable({
   providedIn: 'root'
@@ -53,10 +55,10 @@ export class ProductsService {
     return this.http.patch(`${this.BASE_URL}/products/${id}`, product, {headers: this.headers})
   }
 
-  searchStoreByProduct (productName: string) {
-    return this.http.get(`${this.BASE_URL}/products/search/${productName}`)
+  searchStoreByProduct (term: string) {
+    return this.http.get<ResponseSearchStore>(`${this.BASE_URL}/products/search/${term}`)
     .pipe(
-      map ((res) => res)
+      map(res => res.result)
     )
   }
 }

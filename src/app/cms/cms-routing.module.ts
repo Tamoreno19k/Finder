@@ -17,7 +17,7 @@ const routes: Routes = [
       {
         path: 'categories',
         component: CategoriesComponent
-      }
+      },
     ],
     canActivate: [verificationAuthGuard]
   },

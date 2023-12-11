@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { homePageRoutingModule } from './home-routing.module';
 import { SearchComponent } from './search/search.component';
+import { StoreDetailsComponent } from './store-details/store-details.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { SearchComponent } from './search/search.component';
   ],
   declarations: [
     homePage,
-    SearchComponent
+    SearchComponent,
+    StoreDetailsComponent
   ]
 })
 export class homePageModule {}
