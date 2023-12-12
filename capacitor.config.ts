@@ -1,9 +1,9 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'co.finder-app',
   appName: 'Finder',
-  webDir: 'www',
+  webDir: 'app',
   server: {
     androidScheme: 'https'
   }
