@@ -20,30 +20,11 @@ const routes: Routes = [
       },
       {
         path: 'tab3',
-<<<<<<< HEAD
         loadChildren: () => import('../settings/settings.module').then(m => m.settingsPageModule),
         canActivate: [verificationAuthGuard]  // Ajusta según sea necesario
       }
     ],
   }
-=======
-        loadChildren: () => import('../settings/settings.module').then(m => m.settingsPageModule),  // aqui va el can activate canActivate: [verificationAuthGuard]
-      },
-      
-      // {
-      //   path: '',
-      //   redirectTo: '/tabs/tab1',
-      //   pathMatch: 'full'
-      // }
-    ],
-
-  },
-  // {
-  //   path: '',
-  //   redirectTo: '/tabs/tab1',
-  //   pathMatch: 'full'
-  // }
->>>>>>> 747c007fe7903db6994fba71536d2c1d8fa3ac60
 ];
 
 @NgModule({

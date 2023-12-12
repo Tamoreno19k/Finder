@@ -5,8 +5,7 @@ import { HistorialComponent } from './historial/historial.component';
 
 const routes: Routes = [
   {
-
-    path: '', // Utilizamos ':id' para indicar que este segmento de la URL será un parámetro
+    path: '',
     component: profilePage,
   },
   {

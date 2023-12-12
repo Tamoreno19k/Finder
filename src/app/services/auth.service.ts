@@ -80,16 +80,11 @@ export class AuthService {
       );
   }
 
-<<<<<<< HEAD
-verifyToken() {
-=======
   getStoreId(): string | null {
     return localStorage.getItem('storeId')
   }
 
 verifyToken(){
->>>>>>> 747c007fe7903db6994fba71536d2c1d8fa3ac60
-
   const token = localStorage.getItem('token') || '';
   const URL = `${this.BASE_URL}/auth/renew-token`;
   const headers = new HttpHeaders().set('X-Token', token);
