@@ -28,8 +28,38 @@ export class profilePage {
     private authservice: AuthService
   ) {}
 
+<<<<<<< HEAD
   get user() {
     return this.authservice.user;
+=======
+  ngOnInit() {
+    this.activateRoute.params
+      .pipe(
+        tap(response => {
+          console.log(response)
+          return response
+        }),
+        map(response => response['id'])
+      ).subscribe(id => {
+        console.log(id)
+
+        this.userId = id
+
+        this.userService.getUserById(id).subscribe((data: User): void => {
+          console.log(data)
+
+          const {name, lastName, username, phone, email} = data;
+
+          this.updateUserForm.setValue({
+            name,
+            lastName,
+            username,
+            phone,
+            email
+          })
+        })
+      })
+>>>>>>> 747c007fe7903db6994fba71536d2c1d8fa3ac60
   }
 
   ngOnInit() {

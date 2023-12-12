@@ -68,18 +68,27 @@ export class AuthService {
       .pipe(
         tap( ( response: ResponseStoreAuth ) => {
           localStorage.setItem( 'token', response.token! );
+          localStorage.setItem('storeId', response.storeId!)
           
           this.router.navigateByUrl( '/cms/cms-home' );
 
         }),
-        map( ( response: ResponseStoreAuth ) => response.store_id ),
+        map( ( response: ResponseStoreAuth ) => response.ok ),
         catchError( error => {
           return of( false );
         })
       );
   }
 
+<<<<<<< HEAD
 verifyToken() {
+=======
+  getStoreId(): string | null {
+    return localStorage.getItem('storeId')
+  }
+
+verifyToken(){
+>>>>>>> 747c007fe7903db6994fba71536d2c1d8fa3ac60
 
   const token = localStorage.getItem('token') || '';
   const URL = `${this.BASE_URL}/auth/renew-token`;
@@ -102,7 +111,8 @@ verifyToken() {
     } )
   );
 }
-  removeToken(token: string) {
+  removeToken(token: string, storeId: string) {
     localStorage.removeItem(token)
+    localStorage.removeItem(storeId)
 }
 }
