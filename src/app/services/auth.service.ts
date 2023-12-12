@@ -15,12 +15,20 @@ import { ResponseStoreAuth } from '../interfaces/response-store-auth';
 export class AuthService {
   BASE_URL: String = environment.baseUrl;
   private authData!: User
+  userData!: User
 
   constructor(
     private http: HttpClient,
     private router: Router
 
   ) { }
+
+  /** Getter */
+  get user() {
+    // Evita modificaciones sobre el atributo de la clase "Inmutable"
+    return { ...this.authData };
+  }
+
 
   register (newUser: User){ 
     const URL = `${ this.BASE_URL}/auth/register`
@@ -41,6 +49,7 @@ export class AuthService {
       .pipe(
         tap( ( response: ResponseAuth ) => {
           localStorage.setItem( 'token', response.token! );
+          this.userData = response.userData
           
           this.router.navigateByUrl( '/page/tabs/tab2' );
 
@@ -70,7 +79,7 @@ export class AuthService {
       );
   }
 
-verifyToken(){
+verifyToken() {
 
   const token = localStorage.getItem('token') || '';
   const URL = `${this.BASE_URL}/auth/renew-token`;
