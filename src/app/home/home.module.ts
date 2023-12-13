@@ -25,7 +25,7 @@ import { CartComponent } from './cart/cart.component';
     homePage,
     SearchComponent,
     StoreDetailsComponent,
-    CartComponent
+    CartComponent,
   ]
 })
 export class homePageModule {}
