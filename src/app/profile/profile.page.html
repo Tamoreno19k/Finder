@@ -10,11 +10,14 @@
 </ion-header>
 
 <ion-content>
-  <pre>{{ user | json }}</pre>
   <ion-card>
     <ion-card-header>
-      <ion-img src="https://ionicframework.com/docs/img/demos/avatar.svg" alt="User Avatar"></ion-img>
-      <ion-card-title>{{ updateUserForm.value.name }} {{ updateUserForm.value.lastName }}</ion-card-title>
+      <ion-item>
+        <ion-avatar aria-hidden="true" slot="start">
+          <img alt="User Avatar" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </ion-avatar>
+        <ion-label>{{ updateUserForm.value.name }} {{ updateUserForm.value.lastName }}</ion-label>
+      </ion-item>
     </ion-card-header>
   
     <ion-card-content>
@@ -22,12 +25,6 @@
         [formGroup]="updateUserForm"
         (ngSubmit)="onSubmit()"
       >
-
-        <ion-item>
-          <ion-label>ID:</ion-label>
-          <ion-text></ion-text>
-        </ion-item>
-
         <ion-item>
           <ion-label>Nombres:</ion-label>
           <ion-input formControlName="name"></ion-input>
@@ -49,10 +46,10 @@
         </ion-item>
 
       </form>
-      <!-- Otros campos según sea necesario -->
-
-      <ion-button type="submit">Actualizar</ion-button>
-
+      <ion-button class="btn btn-primary button"
+      type="submit"
+      [disabled]="this.updateUserForm.invalid"
+    >Actualizar</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>

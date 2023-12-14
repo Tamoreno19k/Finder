@@ -1,14 +1,8 @@
-  <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Login
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content class="field">
+
+<ion-content class="login-star">
   <div class="login-box">
-    <h1 class="login-box__titulo">Inicia sesión</h1>
+    <img class="logo-image" src="../../../assets/logo-HD.png" alt="logo">
     <p class="login-box__subtitulo">¡Te extrañamos!</p>
 
     <form
@@ -53,7 +47,7 @@
       *ngIf="loginForm.get( 'password' )?.invalid && ( loginForm.get( 'password' )?.dirty || loginForm.get( 'password' )?.touched )" class="error-message"
       > Esto esta hacindo que si yo no toco el field del password, no me muestra el boton de login -->  
       <small *ngIf="loginForm.get( 'password' )?.errors?.[ 'required' ]">
-        Contraseña es requerida.
+        <!-- Contraseña es requerida. -->
       </small>
       <div class="login-box__forgot-password">
         <a class="login-box__forgot-password-enlace" routerLink="/auth/reset-password">¿Olvidaste tu contraseña?</a>
@@ -63,7 +57,7 @@
       class="boton" 
       expand="full" 
       type="submit"
-      class="btn btn-primary"
+      class="btn-btn-primary"
       type="submit"
       [disabled]="this.loginForm.invalid"
       >
@@ -71,6 +65,9 @@
 
     <div class="methods">
     </div>
+
+<img class="barra" src="../../../assets/barra-insta.png" alt="barra">
+
     <button (click)="loginWithGoogle()" class="gsi-material-button">
 
       <div class="gsi-material-button-state"></div>

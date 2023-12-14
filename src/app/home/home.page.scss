@@ -4,6 +4,8 @@
     height: 8.5rem;
 }
 
+
+
 .card__header {
     display: flex;
     flex-direction: column;
@@ -23,12 +25,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 3.5rem;
-    background-color: #E6E6FA;
+    height: 5rem;
+    background-color: #4854E0;
 }
 
 .header__image{
-    height: 8rem;
+    width: 20.5rem;
+    height: 11rem;
+    margin-left: 19vw;
 }
 
 .cart {
@@ -46,17 +50,4 @@
 .router__search {
     text-decoration: none;
     color: inherit;
-}
-
-.header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 3.5rem;
-    background-color: #E6E6FA;
-}
-
-.header__image{
-    width: 6.5rem;
-    height: 4rem;
 }
