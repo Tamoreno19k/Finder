@@ -1,17 +1,16 @@
 <ion-content>
-  <!-- <div [dataSource]="dataSource"></div> -->
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Card Title</ion-card-title>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+      <ion-card-title>Carrito</ion-card-title>
+      <ion-card-subtitle></ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
       <ion-list>
-        <ion-item>
+        <ion-item *ngFor="let item of cartData">
           <ion-thumbnail slot="start">
-            <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+            <img [src]="item.urlImage">
           </ion-thumbnail>
-          <ion-label>Item</ion-label>
+          <ion-label>{{item.name}} ({{item.price | currency}})</ion-label>
         </ion-item>
       </ion-list>
     </ion-card-content>

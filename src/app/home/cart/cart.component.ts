@@ -16,7 +16,7 @@ export class CartComponent  implements OnInit {
     ]
   }
 
-  dataSource: Array<CartItem> = []
+  cartData!: CartItem[]
 
   displayedColums: Array<string> = [
     'product',
@@ -34,8 +34,9 @@ export class CartComponent  implements OnInit {
   ngOnInit() {
     this.cartService.cart.subscribe((cart: Cart) => {
       this.cart = cart
-      this.dataSource = this.cart.items
+      this.cartData = this.cart.items
     })
+    console.log(this.cartService.cart.value)
   }
 
   getTotal(items: Array<CartItem>): number {
