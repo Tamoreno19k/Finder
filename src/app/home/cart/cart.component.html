@@ -1,0 +1,18 @@
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Carrito</ion-card-title>
+      <ion-card-subtitle></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let item of cartData">
+          <ion-thumbnail slot="start">
+            <img [src]="item.urlImage">
+          </ion-thumbnail>
+          <ion-label>{{item.name}} ({{item.price | currency}})</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

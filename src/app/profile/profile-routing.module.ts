@@ -5,7 +5,7 @@ import { HistorialComponent } from './historial/historial.component';
 
 const routes: Routes = [
   {
-    path: ':id',
+    path: '',
     component: profilePage,
   },
   {
@@ -19,3 +19,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class profilePageRoutingModule {}
+

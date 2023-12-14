@@ -9,8 +9,10 @@ import { HttpClientModule } from '@angular/common/http'
 import { homePageRoutingModule } from './home-routing.module';
 import { SearchComponent } from './search/search.component';
 import { StoreDetailsComponent } from './store-details/store-details.component';
+
 import { OrderComponent } from './order/order.component';
 import { GooglemapsComponent } from '../googleMaps/googlemaps/googlemaps.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   imports: [
@@ -27,7 +29,8 @@ import { GooglemapsComponent } from '../googleMaps/googlemaps/googlemaps.compone
     SearchComponent,
     StoreDetailsComponent, 
     OrderComponent,
-    GooglemapsComponent
+    GooglemapsComponent,
+    CartComponent
   ]
 })
 export class homePageModule {}

@@ -1,3 +1,5 @@
+// tabs.page.ts
+
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -7,12 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
+  userId: string = ''; // Inicializar la propiedad userId
 
-  constructor(
-    private router: Router
-  ) {}
+  constructor(private router: Router) {}
 
-  backToHome () {
-    this.router.navigate(['tabs/tab2'])
+  backToHome() {
+    this.router.navigate(['/tabs/tab2']);
   }
 }

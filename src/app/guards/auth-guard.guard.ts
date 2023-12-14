@@ -13,6 +13,7 @@ export const verificationAuthGuard: CanActivateFn = (route, state) => {
 return authService.verifyToken()
 .pipe(
   tap (value => {
+    console.log( '::::::::', value );
     if (! value) {router.navigateByUrl('/auth/login')}
   })
 )

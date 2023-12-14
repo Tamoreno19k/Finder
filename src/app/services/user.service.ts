@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { User } from '../interfaces/user';
 import { map, tap } from 'rxjs'
 import { ResponseAuth } from '../interfaces/response-auth';
+import { ResponseUser } from '../interfaces/response-user';
 
 @Injectable({
   providedIn: 'root'
@@ -19,14 +20,23 @@ export class UserService {
     this.headers = new HttpHeaders().set ('X-Token', this.token)
   }
 
-  getUserById(id: string) {
-    return this.http.get<ResponseAuth>(`${this.BASE_URL}/auth/user/${id}`)
+  getUserById(id: string|undefined) {
+    return this.http.get<ResponseUser>(`${this.BASE_URL}/auth/user/${id}`)
       .pipe(
         tap( data => {
           console.log(data)
           return data
         }),
-        map( user => user.userData )
+        map( data => data.data )
       )
+  }
+  
+  updateUser (id: string, user: User) {
+    console.log(id)
+
+    return this.http.patch(
+      `${ this.BASE_URL }/tabs1/${ id }`,
+      user,
+      { headers: this.headers })
   }
 }
