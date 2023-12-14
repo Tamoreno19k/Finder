@@ -18,7 +18,7 @@ export class profilePage {
     phone: ['', [Validators.required]]
   });
 
-  userId!: string | undefined;
+  userId!: string ;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -69,5 +69,14 @@ export class profilePage {
    onSubmit() {
     console.log( this.updateUserForm.value );
     
+   }
+
+   updateUser () {
+    console.log(this.updateUserForm.value)
+
+    this.userService.updateUser(this.userId,this.updateUserForm.value)
+    .subscribe(data=> {console.log( data ); this.updateUserForm.reset()
+  })
+
    }
 }

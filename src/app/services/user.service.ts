@@ -30,4 +30,13 @@ export class UserService {
         map( data => data.data )
       )
   }
+  
+  updateUser (id: string, user: User) {
+    console.log(id)
+
+    return this.http.patch(
+      `${ this.BASE_URL }/tabs1/${ id }`,
+      user,
+      { headers: this.headers })
+  }
 }
