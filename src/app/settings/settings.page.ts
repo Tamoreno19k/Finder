@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthGoogleServiceCustomers } from '../services/auth-google-customers.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'settings-tab3',
@@ -12,7 +13,8 @@ export class settingsPage implements OnInit {
 
   constructor(
     private authGoogleServiceCustomers: AuthGoogleServiceCustomers,
-    private router: Router
+    private router: Router, 
+    private authService: AuthService
   ) {}
 
   ngOnInit() {}
@@ -23,6 +25,10 @@ export class settingsPage implements OnInit {
     this.authGoogleServiceCustomers.logOutGoogle()
     this.router.navigate(['auth/login'])  
 
+  }
+  logOutCx() {
+    this.authService.removeCxToken('token')
+    this.router.navigate(['auth/login'])
   }
 
 }

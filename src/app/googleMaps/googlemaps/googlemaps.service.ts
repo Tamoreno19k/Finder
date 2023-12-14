@@ -26,7 +26,7 @@ export class GooglemapsService {
       const script = renderer.createElement('script');
       script.id = 'googleMaps';
 
-      window['mapInit'] = () => {
+      (window as any)['mapInit'] = () => {
           this.mapsLoaded = true;
           if (google) {
              console.log('google is loaded')

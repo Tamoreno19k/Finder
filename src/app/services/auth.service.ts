@@ -102,4 +102,7 @@ verifyToken(){
     localStorage.removeItem(token)
     localStorage.removeItem(storeId)
 }
+removeCxToken(token: string) {
+  localStorage.removeItem(token)
+}
 }

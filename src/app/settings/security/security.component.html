@@ -17,10 +17,10 @@
 
 <br>
 
-<ion-button id="present-alert"  expand="block" fill="outline">Cierre de Sesión Global</ion-button>
+<ion-button (click)="logOutCx()" id="present-alert"  expand="block" fill="outline">Cierre de Sesión Global</ion-button> 
 <ion-alert
   trigger="present-alert"
-  header="¿Estás seguro que quieres cerrar sesión en todos tus dispositivos?"
+  header= "Tu sesión se ha cerrado en todos los dispositivos."
   [buttons]="alertButton"
   (didDismiss)="setResult($event)"
 ></ion-alert>

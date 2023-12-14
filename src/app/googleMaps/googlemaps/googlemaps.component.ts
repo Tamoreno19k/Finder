@@ -2,11 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Component, OnInit, Input, Renderer2, ElementRef, ViewChild, Inject } from '@angular/core';
 import { GooglemapsService } from './googlemaps.service';
 import { ModalController } from '@ionic/angular';
-
-import { Plugins } from '@capacitor/core';
-const {Geolocation} = Plugins;
-
-
+import { Geolocation } from '@capacitor/geolocation';
 
 declare var google: any;
 
@@ -19,15 +15,15 @@ declare var google: any;
 export class GooglemapsComponent implements OnInit {
 
 
-      // coordenadas cuenca
+      // coordenadas deafult
       @Input() position = {  
-            lat: -2.898116,
-            lng: -78.99958149999999
+            lat: 4.644736,
+            lng: -74.063888
       };
 
       label = {
             titulo:'Ubicación',
-            subtitulo: 'Mi ubicación de envío'
+            subtitulo: 'Tú estás aquí'
       } 
 
       map: any;
@@ -35,11 +31,11 @@ export class GooglemapsComponent implements OnInit {
       infowindow: any;
       positionSet: any
 
-      @ViewChild('map') divMap: ElementRef;
+      @ViewChild('map') divMap!: ElementRef;
 
 
       constructor(private renderer: Renderer2,
-                  @Inject(DOCUMENT) private document,
+                @Inject(DOCUMENT) private document: Document,
                   private googlemapsService: GooglemapsService,
                   public modalController: ModalController) { }
 
@@ -59,9 +55,6 @@ export class GooglemapsComponent implements OnInit {
             
       }
 
-
-
-
       initMap() {
 
             const position = this.position;
@@ -71,8 +64,8 @@ export class GooglemapsComponent implements OnInit {
             let mapOptions = {
                   center: latLng,
                   zoom: 15,
-                  disableDefaultUI: true,
-                  clickableIcons: false,
+                  disableDefaultUI: false,
+                  clickableIcons: true,
             };
 
             this.map = new google.maps.Map(this.divMap.nativeElement, mapOptions);
@@ -100,8 +93,6 @@ export class GooglemapsComponent implements OnInit {
 
       }
 
-
-
       addMarker(position: any): void {
 
             let latLng = new google.maps.LatLng(position.lat, position.lng);
@@ -111,7 +102,6 @@ export class GooglemapsComponent implements OnInit {
             this.positionSet = position;
 
       }
-
 
       setInfoWindow(marker: any, titulo: string, subtitulo: string) {
 
@@ -133,7 +123,7 @@ export class GooglemapsComponent implements OnInit {
 
       console.log('mylocation() click')
 
-      Geolocation.getCurrentPosition().then((res) => {
+      Geolocation.getCurrentPosition().then((res:any) => {
 
             console.log('mylocation() -> get ', res);
 
@@ -149,7 +139,7 @@ export class GooglemapsComponent implements OnInit {
 
       aceptar() {
             console.log('click aceptar -> ', this.positionSet);
-            this.modalController.dismiss({pos: this.positionSet})
+            // this.modalController.dismiss({pos: this.positionSet})
       }
 
 }
