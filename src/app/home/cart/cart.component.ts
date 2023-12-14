@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Directive, OnInit } from '@angular/core';
 import { Cart, CartItem } from 'src/app/interfaces/cart';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -11,8 +11,8 @@ export class CartComponent  implements OnInit {
 
   cart: Cart = {
     items: [
-      { id: 1, urlImage: 'https://placehold.co/150x200', name: 'snikers', price: 150, quantity: 1 },
-      { id: 2, urlImage: 'https://placehold.co/150x200', name: 'puma', price: 175, quantity: 3 },
+      { id: '565512', urlImage: 'https://placehold.co/150x200', name: 'snikers', price: 150, quantity: 1 },
+      { id: '1859', urlImage: 'https://placehold.co/150x200', name: 'puma', price: 175, quantity: 3 },
     ]
   }
 
