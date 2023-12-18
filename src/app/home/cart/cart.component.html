@@ -7,12 +7,21 @@
     <ion-card-content>
       <ion-list>
         <ion-item *ngFor="let item of cartData">
+          <div class="cart-info">
           <ion-thumbnail slot="start">
-            <img [src]="item.urlImage">
-          </ion-thumbnail>
-          <ion-label>{{item.name}} ({{item.price | currency}})</ion-label>
+            <img class="product-img" [src]="item.urlImage">
+          </ion-thumbnail> 
+          <ion-label>{{item.name}} <br>({{item.price * item.quantity | currency}})</ion-label> 
+        </div>
+          <!-- <ion-icon class="icon-delete" name="close-sharp" (click)="onRemoveFromCart(item)"></ion-icon> -->
+          <div class="add-section">
+            <ion-icon class="icon" name="add-sharp" (click)="onAddQuantity(item)"></ion-icon>
+            <p class="text-quantity"><strong>{{item.quantity}}</strong></p>
+            <ion-icon class="icon" name="remove-sharp" (click)="onRemoveQuantity(item)"></ion-icon>
+          </div>
         </ion-item>
       </ion-list>
+      <ion-button expand="full" color="tertiary" (click)="onClearCart()">Borrar todo</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>
