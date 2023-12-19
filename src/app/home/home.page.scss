@@ -25,14 +25,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 5rem;
+    height: 10rem;
     background-color: #4854E0;
 }
 
 .header__image{
-    width: 20.5rem;
-    height: 11rem;
-    margin-left: 19vw;
+    width: 8.5rem;
+    position: inherit;
 }
 
 .cart {
@@ -47,7 +46,14 @@
     font-size: 25px;
 }
 
-.router__search {
-    text-decoration: none;
-    color: inherit;
+.header[_ngcontent-ng-c851329391] {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 9.5rem;
+    background-color: #4854E0;
+}
+
+.header-icon {
+    font-size: 30px;
 }

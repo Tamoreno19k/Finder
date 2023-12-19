@@ -1,18 +1,18 @@
 <ion-header class="header" >
-  <ion-toolbar class="toolbar" color="toolbar">
-  <img class="header__image" src="../../assets/finder-white.png" alt="logoFinder">
-  </ion-toolbar>
+  <ion-icon name="search" class="header-icon" routerLink="search"></ion-icon>
+   <ion-img class="header__image" src="../../assets/finder_logo_final.png" alt="logoFinder"> </ion-img>
+  <ion-icon name="cart-outline" class="header-icon" routerLink="cart"></ion-icon>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <a class="router__search" routerLink="search">
+    <!-- <a class="router__search" routerLink="search">
       <ion-searchbar color="ligth" animated="true" placeholder="¿Que deseas?"></ion-searchbar>
-    </a>
-  <ion-card class="cart" color="tertiary" routerLink="cart">
+    </a> -->
+  <!-- <ion-card class="cart" color="tertiary" routerLink="cart">
     <ion-card-content>
       <ion-icon class="cart__icon" name="cart"></ion-icon>
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
 
   <ion-card (click)="goToOrder()"  class="card"  color="primary">
     <ion-card-header class="card__header">
@@ -28,13 +28,5 @@
       <ion-icon class="card__arrow" name="arrow-forward-circle"></ion-icon>
     </ion-card-header>
     <ion-img class="card__img" src="assets/envia.png"></ion-img>
-  </ion-card>
-
-  <ion-card class="card"  color="primary">
-    <ion-card-header class="card__header">
-      <ion-card-title>¿Necesitas ayuda?</ion-card-title>
-      <ion-icon class="card__arrow" name="arrow-forward-circle"></ion-icon>
-    </ion-card-header>
-    <ion-img class="card__img" src="assets/pedido.png"></ion-img>
   </ion-card>
 </ion-content>

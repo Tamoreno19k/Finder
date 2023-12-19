@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { Product } from 'src/app/interfaces/product';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductsService } from 'src/app/services/products.service';
@@ -17,7 +18,8 @@ export class StoreDetailsComponent  implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productsService: ProductsService,
-    private cartService: CartService
+    private cartService: CartService,
+    private toastController: ToastController
   ) { }
 
   ngOnInit() {
@@ -32,6 +34,16 @@ export class StoreDetailsComponent  implements OnInit {
     })
   }
 
+  async presentToast(position: 'top' | 'middle' | 'bottom') {
+    const toast = await this.toastController.create({
+      message: 'Item añadido correctamente',
+      duration: 800,
+      position: position,
+    });
+
+    await toast.present();
+  }
+
   onAddCart(product: Product): void {
     this.cartService.addToCart({
       id: product._id,
@@ -40,6 +52,7 @@ export class StoreDetailsComponent  implements OnInit {
       price: product.price,
       quantity: 1
     })
+    this.presentToast('top')
   }
 
 }

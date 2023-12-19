@@ -25,11 +25,25 @@
     border-radius: 12px;
 }
 
-ion-label.sc-ion-label-md-h.sc-ion-label-md-s.md.hydrated[_ngcontent-ng-c2341802529] {
-    margin-left: 64px;
-    margin-top: -46px;
+.cart-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
 }
 
-ion-label.sc-ion-label-md-h.sc-ion-label-md-s.md.hydrated {
-    margin-left: 12px;
+.cart {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button-confirm {
+    border-radius: 25px;
 }
