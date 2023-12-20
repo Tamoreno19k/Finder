@@ -1,3 +1,15 @@
-<p>
-  my-store works!
-</p>
+<ion-content>
+  <ion-card color="secondary">
+    <img [src]="store.urlLogo" />
+    <ion-card-header>
+      <ion-card-title>{{store.storeName}}</ion-card-title>
+      <ion-card-subtitle>{{store.nit}}</ion-card-subtitle>
+      <ion-card-subtitle>{{store.address}}</ion-card-subtitle>
+      <ion-card-subtitle>{{store.phone}}</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{store.description}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

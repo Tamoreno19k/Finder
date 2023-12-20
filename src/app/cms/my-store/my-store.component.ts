@@ -22,8 +22,9 @@ export class MyStoreComponent  implements OnInit {
 
   getDataStore() {
     const idStore = this.storeId = this.authService.getStoreId()
-    this.authService.getDataStore(idStore).subscribe(data => {
+    this.authService.getDataStore(idStore).subscribe((data: Store) => {
       this.store = data
+      console.log(data)
     })
   }
   

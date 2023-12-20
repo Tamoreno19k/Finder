@@ -85,7 +85,10 @@ export class AuthService {
   }
 
   getDataStore(storeId: string | null) {
-    return this.http.get(`${this.BASE_URL}/auth/cms/user/${storeId}`) 
+    return this.http.get<ResponseStoreAuth>(`${this.BASE_URL}/auth/cms/user/${storeId}`)
+    .pipe(
+      map(data => data.storeData)
+    )
   }
   
 verifyToken(){
