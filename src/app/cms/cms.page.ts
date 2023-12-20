@@ -27,10 +27,4 @@ export class CmsComponent  implements OnInit {
     this.authService.removeToken('token', 'storeId')
     this.router.navigate(['auth/login-store'])
   }
-
-  goToProducts(event: Event): void {
-    event.preventDefault()
-    this.router.navigate(['cms/cms-home/products'])
-  }
-
 }

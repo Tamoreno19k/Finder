@@ -4,12 +4,17 @@ import { CmsComponent } from './cms.page';
 import { ProductsComponent } from './products/products.component';
 import { verificationAuthGuard } from '../guards/auth-guard.guard';
 import { CategoriesComponent } from './categories/categories.component';
+import { MyStoreComponent } from './my-store/my-store.component';
 
 const routes: Routes = [
   {
     path: 'cms-home',
     component: CmsComponent,
     children: [
+      {
+        path: '',
+        redirectTo: 'my-store'
+      },
       {
         path: 'products',
         component: ProductsComponent
@@ -18,6 +23,10 @@ const routes: Routes = [
         path: 'categories',
         component: CategoriesComponent
       },
+      {
+        path: 'my-store',
+        component: MyStoreComponent
+      }
     ],
     canActivate: [verificationAuthGuard]
   },

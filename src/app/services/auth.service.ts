@@ -84,6 +84,10 @@ export class AuthService {
     return localStorage.getItem('storeId')
   }
 
+  getDataStore(storeId: string | null) {
+    return this.http.get(`${this.BASE_URL}/auth/cms/user/${storeId}`) 
+  }
+  
 verifyToken(){
   const token = localStorage.getItem('token') || '';
   const URL = `${this.BASE_URL}/auth/renew-token`;

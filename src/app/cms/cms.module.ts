@@ -8,13 +8,15 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsComponent } from './products/products.component';
 import { AuthPageRoutingModule } from '../auth/auth-routing.module';
 import { CategoriesComponent } from './categories/categories.component';
+import { MyStoreComponent } from './my-store/my-store.component';
 
 
 @NgModule({
   declarations: [
     CmsComponent,
     ProductsComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    MyStoreComponent
   ],
   imports: [
     CommonModule,

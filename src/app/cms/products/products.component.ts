@@ -250,7 +250,3 @@ updateProduct(data: any, id: string) {
         })
   }
 }
-
-function producto(value: Product, index: number, array: Product[]): value is Product {
-  throw new Error('Function not implemented.');
-}
