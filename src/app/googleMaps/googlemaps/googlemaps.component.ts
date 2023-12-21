@@ -66,6 +66,9 @@ export class GooglemapsComponent implements OnInit {
                   zoom: 15,
                   disableDefaultUI: false,
                   clickableIcons: true,
+                  streetViewControl: false,
+                  zoomControl: false,
+                  mapTypeControl: false
             };
 
             this.map = new google.maps.Map(this.divMap.nativeElement, mapOptions);
