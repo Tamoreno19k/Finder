@@ -3,6 +3,9 @@ import { Component, OnInit, Input, Renderer2, ElementRef, ViewChild, Inject } fr
 import { GooglemapsService } from './googlemaps.service';
 import { ModalController } from '@ionic/angular';
 import { Geolocation } from '@capacitor/geolocation';
+import { CartService } from 'src/app/services/cart.service';
+import { Cart, CartItem } from 'src/app/interfaces/cart';
+import { IonContent } from '@ionic/angular';
 
 declare var google: any;
 
@@ -13,7 +16,17 @@ declare var google: any;
   styleUrls: ['./googlemaps.component.scss']
 })
 export class GooglemapsComponent implements OnInit {
+      
+      @ViewChild(IonContent) content!: IonContent;
 
+      cart: Cart = {
+            items: [
+              { id: '565512', urlImage: 'https://placehold.co/150x200', name: 'snikers', price: 150, quantity: 1 },
+              { id: '1859', urlImage: 'https://placehold.co/150x200', name: 'puma', price: 175, quantity: 3 },
+            ]
+          }
+      
+      cartData!: CartItem[]
 
       // coordenadas deafult
       @Input() position = {  
@@ -37,12 +50,19 @@ export class GooglemapsComponent implements OnInit {
       constructor(private renderer: Renderer2,
                 @Inject(DOCUMENT) private document: Document,
                   private googlemapsService: GooglemapsService,
-                  public modalController: ModalController) { }
+                  public modalController: ModalController,
+                  private cartService: CartService
+                  ) { }
 
       ngOnInit(): void {
             this.init();
-
             console.log('position ->', this.position)
+
+            this.cartService.cart.subscribe((cart: Cart) => {
+                  this.cart = cart
+                  this.cartData = this.cart.items
+                })
+                console.log(this.cartService.cart.value)
       }
 
       async init() {
@@ -144,5 +164,11 @@ export class GooglemapsComponent implements OnInit {
             console.log('click aceptar -> ', this.positionSet);
             // this.modalController.dismiss({pos: this.positionSet})
       }
+
+      scrollToBottom() {
+            // Passing a duration to the method makes it so the scroll slowly
+            // goes to the bottom instead of instantly
+            this.content.scrollToBottom(500);
+          }
 
 }

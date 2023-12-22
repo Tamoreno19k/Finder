@@ -13,13 +13,31 @@
 
 <div #map class="map"></div>
 
+<section class="order-section">
+<ion-button color="success" class="order-button" (click)="scrollToBottom()">Tu pedido</ion-button>
+  
+<ion-list>
+  <ion-item *ngFor="let item of cartData">
+    <ion-thumbnail slot="start">
+      <img class="product-img" [src]="item.urlImage">
+    </ion-thumbnail>
+    <ion-label>{{item.name}} <br> {{item.price | currency }}</ion-label>
+    <ion-badge slot="end">{{item.quantity}}</ion-badge>
+  </ion-item>
+</ion-list>
+
+<div class="payment">
+  <ion-icon class="payment__image" name="cash-sharp"></ion-icon>
+  <p class="payment__p">Efectivo</p>
+  <ion-icon class="continue" name="arrow-redo-circle-sharp"></ion-icon>
+</div>
+<div class="button-payment">
+  <ion-button expand="full">Realiza tu pedido</ion-button>
+</div>
+</section>
+
 <ion-chip class="aceptar" (click)="mylocation()">
   <ion-label class="normal">Mi ubicacion</ion-label>
   <ion-icon name="locate" ></ion-icon>
 </ion-chip>
 
-<ion-chip class="miubicacion" (click)="aceptar()">
-  <ion-label class="normal">Mi pedido</ion-label>
-  <ion-icon name="checkmark" ></ion-icon>
-</ion-chip>
-</ion-content>
