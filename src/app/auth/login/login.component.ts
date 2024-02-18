@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthGoogleServiceCustomers } from 'src/app/services/auth-google-customers.service';
 
 import { AuthService } from 'src/app/services/auth.service';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent{
+export class LoginComponent implements OnInit{
  message!: String;
  classMessage!: String;
 
@@ -22,8 +23,14 @@ export class LoginComponent{
     private formBuilder: FormBuilder,
     private authSevice: AuthService,
     private authGoogleServiceCustomers: AuthGoogleServiceCustomers,
-    private router: Router
+    private router: Router,
+    private productsService: ProductsService
   ) {}
+
+  ngOnInit(): void {
+    this.loadProducts()
+  }
+
 
   loginWithGoogle(){
     this.authGoogleServiceCustomers.loginGoogle();
@@ -50,5 +57,11 @@ export class LoginComponent{
 
     });
     // this.router.navigate(['pages', 'tabs', 'tabs2'])
+  }
+
+  loadProducts() {
+    this.productsService.getAllProducts().subscribe((data) => {
+      console.log(data)
+    })
   }
 }
